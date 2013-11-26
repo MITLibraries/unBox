@@ -1,0 +1,66 @@
+/*
+ Theme Name:     unBox Chomsky
+ Theme URI:      http://example.com/unbox-chomsky/
+ Description:    This is a theme for the MIT Libraries "unBox the Chomsky Archives" microsite, derived from mockups designed by Ilavenil Subbiah.
+ Author:         Matt Bernhardt
+ Author URI:     http://libraries.mit.edu
+ Template:       twentytwelve
+ Version:        1.0.0
+*/
+
+/* =Imports styles from the parent theme
+-------------------------------------------------------------- */
+@import url('../twentytwelve/style.css');
+
+
+/* =Theme customization starts here
+-------------------------------------------------------------- */
+body {
+	background: #f2f2f2;
+}
+body .site {
+	/* Cut down on the drop shadow around the page frame */
+	box-shadow: 0 1px 3px rgba(100,100,100,0.3);
+}
+
+header h1.site-title {
+	/* Prevent site title from spanning full width, so re-located header image can slide to the upper right */
+	display: inline-block;
+	width: 70%;
+}
+header a.site-logo {
+	display: inline-block;
+	width: 29%;
+	text-align: right;
+}
+header a.site-logo img {
+	/* No image treatment on the site logo */
+	border-radius: none;
+	box-shadow: none;
+}
+.site-content article {
+	/* Trim the fat from the bottom of the site */
+	border-bottom: none;
+	margin-bottom: 0;
+}
+footer[role="contentinfo"] {
+	/* Trim the fat from the bottom of the site */
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+/* =Media queries
+-------------------------------------------------------------- */
+
+/* Minimum width of 600 pixels. */
+@media screen and (max-width: 600px) {
+	header h1.site-title {
+		display: block;
+		width: auto;
+	}
+	header a.site-logo {		
+		display: block;
+		text-align: center;
+		width: 100%;
+	}
+}
