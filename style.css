@@ -27,6 +27,8 @@ header h1.site-title {
 	/* Prevent site title from spanning full width, so re-located header image can slide to the upper right */
 	display: inline-block;
 	width: 70%;
+	font-size: 6em;
+	line-height: 1em;
 }
 header a.site-logo {
 	display: inline-block;
