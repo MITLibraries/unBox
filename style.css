@@ -16,11 +16,12 @@
 /* =Theme customization starts here
 -------------------------------------------------------------- */
 body {
-	background: #f2f2f2;
+	background: #fff;
+	font-size: 14px;
+	line-height: 21px;
 }
 body .site {
-	/* Cut down on the drop shadow around the page frame */
-	box-shadow: 0 1px 3px rgba(100,100,100,0.3);
+	max-width: 72.85714rem; /* 1020 px */
 }
 
 header h1.site-title {
@@ -45,6 +46,10 @@ header a.site-logo img {
 	border-bottom: none;
 	margin-bottom: 0;
 }
+
+#primary {
+	margin-bottom: 1em;
+}
 #secondary {
 
 }
@@ -53,17 +58,88 @@ header a.site-logo img {
 	width: 25%;
 	float: left;
 }
+#secondary .card div {
+	background-color: #ccc;
+}
+#secondary .card .title {
+	background-color: #e7a015;
+	height: 5.7142rem;
+	color: #000;
+}
+#secondary .card h2 {
+	text-align: center;
+	font-size: 28px;
+	text-transform: uppercase;
+	font-weight: bold;
+	vertical-align: middle;
+}
+#secondary .card h2:after {
+	content: ' > ';
+}
 #secondary .dip {
 	display: inline;
 	width: 50%;
 	float: left;
 }
+
 footer[role="contentinfo"] {
 	/* Trim the fat from the bottom of the site */
 	border: none;
 	margin: 0;
 	padding: 0;
 }
+
+/* =Font styles
+-------------------------------------------------------------- */
+.bigger {
+	font-size: 24px;
+}
+p {
+	margin-bottom: 1em;
+}
+a {
+	font-weight: bold;
+	text-decoration: underline;
+	color: #000;
+}
+
+/* =Specific page styles
+-------------------------------------------------------------- */
+/*
+	Front Page 
+*/
+/* Tabs */
+  /* force a height so the tabs don't jump as content height changes */
+  #tabs .tabs-spacer { float: left; height: 250px; }
+  .tabs-bottom .ui-tabs-nav { clear: left; padding: 0 .2em .2em .2em; }
+  .tabs-bottom .ui-tabs-nav li { top: auto; bottom: 0; margin: 0 .2em 1px 0; border-bottom: auto; border-top: 0; }
+  .tabs-bottom .ui-tabs-nav li.ui-tabs-active { margin-top: -1px; padding-top: 1px; }
+  /* Hid the Home tab when the Home page is active */
+  #tabs li.ui-tabs-active a#ui-id-1 {
+  	display: none;
+  }
+  #tabs ul li.ui-tabs-active a {
+	color: #df820a;  	
+  }
+  #tabs ul.ui-tabs-nav li {
+  	display: inline;
+  	margin-right: 3em;
+  	margin-left: 0;
+  	list-style-type: none;
+  }
+  #tabs ul.ui-tabs-nav li a {
+  	display: inline;
+  	margin-right: 3em;
+  }
+  #tabs ul.ui-tabs-nav li a:after {
+  	content: ' > ';
+  }
+  #tabs ul li {
+  	list-style-type: disc;
+  	margin-left: 2em;
+  }
+
+
 /* =Media queries
 -------------------------------------------------------------- */
 
