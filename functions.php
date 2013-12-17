@@ -10,6 +10,18 @@
 /**
  * Register widget areas
  */
+function masthead_widgets_init() {
+	register_sidebar( array(
+			'name' => 'Masthead',
+			'id' => 'masthead',
+			'before_widget' => '',
+			'after_widget' => '',
+			'before_title' => '<div class="semantic">',
+			'after_title' => '</div>',
+		)
+	);
+}
+add_action( 'widgets_init', 'masthead_widgets_init' );
 function slideshow_widgets_init() {
 	register_sidebar( array(
 			'name' => 'Slideshow Bar',

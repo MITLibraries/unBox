@@ -12,6 +12,9 @@
 -------------------------------------------------------------- */
 @import url('../twentytwelve/style.css');
 
+/* =Imports fonts from Google Fonts
+-------------------------------------------------------------- */
+@import url(http://fonts.googleapis.com/css?family=Montserrat:700);
 
 /* =Theme customization starts here
 -------------------------------------------------------------- */
@@ -24,13 +27,28 @@ body .site {
 	max-width: 72.85714rem; /* 1020 px */
 }
 
+#page {
+	color: #343b43;
+}
+
 header h1.site-title {
 	/* Prevent site title from spanning full width, so re-located header image can slide to the upper right */
 	display: inline-block;
-	width: 70%;
-	font-size: 6em;
-	line-height: 1em;
+	width: 80%;
+	font-size: 75px;
+	line-height: 80px;
+	font-family: 'Montserrat', Arial, sans-serif;
 }
+header h1.site-title a,
+header h1.site-title a:hover,
+header h1.site-title a:focus {
+	color: #343b43;
+}
+header h1.site-title em {
+	font-style: normal;
+	color: #df820a;
+}
+
 header a.site-logo {
 	display: inline-block;
 	width: 29%;
@@ -41,6 +59,30 @@ header a.site-logo img {
 	border-radius: none;
 	box-shadow: none;
 }
+header .masthead {
+	display: inline-block;
+	vertical-align: top;
+	width: 19%;
+}
+header .masthead .logo {
+	float: right;
+	margin-bottom: 63px;
+}
+header .masthead .givenow {
+	clear: right;
+	float: right;
+}
+header .masthead .givenow a {
+	color: #c51a20;
+	text-decoration: none;
+	font-size: 24px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+header .masthead .givenow a:after {
+	content: ' > ';
+}
+
 .site-content article {
 	/* Trim the fat from the bottom of the site */
 	border-bottom: none;
@@ -102,6 +144,11 @@ a {
 	text-decoration: underline;
 	color: #000;
 }
+.semantic {
+	position: absolute;
+	left: -9999px;
+	top: -9999px;
+}
 
 /* =Specific page styles
 -------------------------------------------------------------- */
@@ -123,7 +170,6 @@ a {
   }
   #tabs ul.ui-tabs-nav li {
   	display: inline;
-  	margin-right: 3em;
   	margin-left: 0;
   	list-style-type: none;
   }

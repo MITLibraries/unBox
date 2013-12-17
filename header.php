@@ -35,14 +35,19 @@
 <div id="page" class="hfeed site">
 	<header id="masthead" class="site-header" role="banner">
 		<hgroup>
+			<!-- original h1
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<!-- Site description has been removed 
-			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 			-->
+			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">unBox<br>the <em>Chomsky Archive</em></a></h1>
 			<?php $header_image = get_header_image();
 			if ( ! empty( $header_image ) ) : ?>
 				<a class="site-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo esc_url( $header_image ); ?>" class="header-image" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" /></a>
 			<?php endif; ?>
+			<?php if ( is_active_sidebar( 'masthead' ) ) : ?>
+			<div class="masthead">
+				<?php dynamic_sidebar( 'masthead' ); ?>
+			</div>
+			<?php endif; ?>			
 		</hgroup>
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
