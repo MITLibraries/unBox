@@ -50,10 +50,7 @@
 			<?php endif; ?>			
 		</hgroup>
 
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<h3 class="menu-toggle"><?php _e( 'Menu', 'twentytwelve' ); ?></h3>
-			<a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentytwelve' ); ?>"><?php _e( 'Skip to content', 'twentytwelve' ); ?></a>
-		</nav><!-- #site-navigation -->
+		<!-- Site navigation has been removed -->
 
 	</header><!-- #masthead -->
 

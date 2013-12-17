@@ -31,6 +31,10 @@ body .site {
 	color: #343b43;
 }
 
+header.site-header {
+	padding: 24px 0 0 0;
+	padding: 1.714285714rem 0 0 0;
+}
 header h1.site-title {
 	/* Prevent site title from spanning full width, so re-located header image can slide to the upper right */
 	display: inline-block;
@@ -90,7 +94,8 @@ header .masthead .givenow a:after {
 }
 
 #primary {
-	margin-bottom: 1em;
+	margin-top: 2.2142rem; /* 31px */
+	margin-bottom: 1rem;
 }
 #secondary {
 
