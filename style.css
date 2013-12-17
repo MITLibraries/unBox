@@ -131,9 +131,14 @@ header .masthead .givenow a:after {
 
 footer[role="contentinfo"] {
 	/* Trim the fat from the bottom of the site */
-	border: none;
 	margin: 0;
 	padding: 0;
+	position: fixed;
+	bottom: 0;
+	max-width: 72.85714rem; /* 1020 px */
+	background-color: #343b43;
+	color: #e6a015;
+	width: 100%;
 }
 
 /* =Font styles

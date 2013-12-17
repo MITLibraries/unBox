@@ -13,6 +13,7 @@
 	</div><!-- #main .wrapper -->
 	<footer id="colophon" role="contentinfo">
 		<div class="site-info">
+			This is the footer.
 			<?php do_action( 'twentytwelve_credits' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
