@@ -199,6 +199,38 @@ a {
   	margin-left: 2em;
   }
 
+/*
+	Slideshow
+*/
+#accordion {
+}
+#accordion * {
+	/* padding: 0.25em; */
+}
+#accordion h2 {
+	padding: 0.5em 0;
+	background: #434C54;
+}
+#accordion h2 a {
+	padding-left: 0.5em;
+	text-decoration: none;
+	font-weight: bold;
+	color: #ECAD17;
+	text-transform: uppercase;
+}
+#accordion h2:after {
+	content: ' > ';
+	color: #ECAD17;
+}
+#accordion h2.ui-state-active {
+	background: #ECAD17;
+}
+#accordion h2.ui-state-active:after {
+	color: #434C54;
+}
+#accordion h2.ui-state-active a {
+	color: #434C54;
+}
 
 /* =Media queries
 -------------------------------------------------------------- */

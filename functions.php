@@ -50,8 +50,9 @@ add_action( 'widgets_init', 'diptych_widgets_init' );
 add_filter( 'put_trailing_linebreak', '__return_false' );
 
 /**
- * Add "Tab" / unbox_tabs content type
+ * Register post types
  */
+/* unbox_tabs */
 add_action('init','unbox_tabs_init');
 function unbox_tabs_init()
 {
@@ -82,6 +83,39 @@ function unbox_tabs_init()
 		'supports' => array('title')
 	);
 	register_post_type('unbox_tabs',$args);
+}
+/* unbox_slides */
+add_action('init','unbox_slides_init');
+function unbox_slides_init()
+{
+	$unbox_slides_labels = array(
+		'name' => _x('Slides', 'post type general name'),
+		'singular_name' => _x('Slide', 'post type singular name'),
+		'all_items' => __('All Slides'),
+		'add_new' =>_x('Add new slide', 'slides'),
+		'add_new_item' => __('Add new slide'),
+		'edit_item' => __('Edit slide'),
+		'new_item' => __('New slide'),
+		'view_item' => __('View slide'),
+		'search_items' => __('Search in slidess'),
+		'not_found' => __('No slides found'),
+		'not_found_in_trash' => __('No slides found in trash'),
+		'parent_item_colon' => ''
+	);
+	$args = array(
+		'labels' => $unbox_slides_labels,
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true,
+		'query_var' => true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'menu_position' => 20,
+		'supports' => array('title'),
+		'taxonomies' => array('category')
+	);
+	register_post_type('unbox_slides',$args);
 }
 
 /**
