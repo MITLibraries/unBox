@@ -13,9 +13,11 @@
  */
 
 wp_register_script('jquery-cycle2',get_stylesheet_directory_uri().'/jquery.cycle2.min.js');
+wp_register_script('jquery-bbq',get_stylesheet_directory_uri().'/jquery.ba-bbq.min.js');
 wp_enqueue_script('jquery');
 wp_enqueue_script('jquery-ui-accordion');
 wp_enqueue_script('jquery-cycle2');
+wp_enqueue_script('jquery-bbq');
 
 get_header(); ?>
 
@@ -74,9 +76,32 @@ get_header(); ?>
 
 	<script>
 	jQuery(document).ready(function() {	
+		// read initial state
+		var x = jQuery.bbq.getState();
+		var intFold = parseInt(x.active);
+
 		jQuery("#accordion").accordion({
+			active: intFold,
 			heightStyle: "content",
+			activate: function (event, ui) {
+				var active = jQuery("#accordion").accordion('option','active');
+				jQuery.bbq.pushState({'active':active},0);
+			}
 		});
+
+		jQuery(window).bind('hashchange', function () {                
+		    var x = jQuery.bbq.getState();
+		    if (x.active == undefined) {
+		        jQuery("#accordion").accordion('option', 'active', 0);
+		    } else {
+		        jQuery("#accordion").accordion('option', 'active', x.active);
+		    }
+		});
+
+		// Since the event is only triggered when the hash changes, we need to trigger
+		// the event now, to handle the hash the page may have loaded with.
+		jQuery(window).trigger('hashchange');
+
 	});
 	</script>
 
