@@ -47,6 +47,7 @@ get_header(); ?>
 					'posts_per_page' => -1,
 					'caller_get_posts' => 1,
 					'orderby' => 'title',
+					'cat' => $category->term_id,
 				);
 				$the_slides = null;
 				$the_slides = new WP_Query($args);
