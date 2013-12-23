@@ -87,6 +87,9 @@ header .masthead .givenow a:after {
 	content: ' > ';
 }
 
+#main {
+	margin-bottom: 8rem;
+}
 .site-content article {
 	/* Trim the fat from the bottom of the site */
 	border-bottom: none;
@@ -143,6 +146,7 @@ footer[role="contentinfo"] {
 	font-weight: bold;
 	color: #e6a015;
 	text-transform: uppercase;
+	z-index: 200;
 }
 
 /* =Font styles
@@ -230,6 +234,72 @@ a {
 }
 #accordion h2.ui-state-active a {
 	color: #434C54;
+}
+.cycleslide {
+	width: 1008px;
+	height: 824px;
+	padding: 5px;
+border: 1px solid #ffe9b0;
+margin: 1px 0px;
+}
+.cycleslide .caption {
+	background-color: #ffe9b0;
+	display: inline-block;
+}
+.cycleslide .caption-inner {
+margin: 5px;
+font-size: 12px;
+line-height: 21px; 
+}
+.prev {
+	position: relative;
+	left: -10px;
+	top: -400px;
+	padding: 10px;
+	background: #343b43;
+	opacity: 0.5;
+	z-index: 101;
+	color: white;
+}
+.next {
+	position: relative;
+	right: -10px;
+	top: -400px;
+	padding: 10px;
+	background: #343b43;
+	opacity: 0.5;
+	z-index: 101;
+	color: white;
+}
+.prev:hover,
+.prev:focus,
+.next:hover,
+.next:focus {
+	opacity: 1.0;
+}
+/* Layouts */
+.cycleslide.layout1v .caption {
+	width: 365px;
+	height: 820px;
+	vertical-align: top;
+	margin-left: 4px;
+}
+.cycleslide.layout1v .caption-inner {
+margin-top: 410px;
+}
+.cycleslide.layout1h .caption {
+width: 1008px;
+height: 90px;
+margin-top: 4px;
+}
+.cycleslide.layout2v img {
+display: inline-block;
+width: 500px;
+}
+.cycleslide.layout2v .caption {
+width: 1008px;
+height: 170px;
+margin-top: 4px;
 }
 
 /* =Media queries

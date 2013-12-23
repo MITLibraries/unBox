@@ -30,35 +30,30 @@ get_header(); ?>
 			$categories = get_categories($args);
 
 			foreach($categories as $category) {
-				// slide title
+				// slideshow title
 				echo '<h2><a href="#' . $category->name . '">' . $category->name . '</a></h2>';
 
+				$args = array(
+					'post_type' => 'unbox_slides',
+					'post_status' => 'publish',
+					'posts_per_page' => -1,
+					'caller_get_posts' => 1,
+					'orderby' => 'title',
+				);
+				$the_slides = null;
+				$the_slides = new WP_Query($args);
 
-				echo '<p>List of slides</p>';
+				if( $the_slides->have_posts() ) {
+					while ( $the_slides->have_posts() ) : $the_slides->the_post();
+						get_template_part('content','slide');
+					endwhile;
+				}
+
+				wp_reset_query();
+
 			}
 			?>
 			</div>
-			<hr>
-			<?php 
-			// Arguments
-			$args = array(
-				'post_type' => 'unbox_slides',
-				'cat' => '3',
-				);
-			// The Query
-			$the_query = new WP_Query($args); 
-
-			// The Loop
-			if ($the_query->have_posts() ) {
-				echo '<p>Post</p>';
-			} else {
-				echo '<p>Nothing found</p>';
-			}
-			?>
-
-			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'content', 'page' ); ?>
-			<?php endwhile; // end of the loop. ?>
 
 		</div><!-- #content -->
 	</div><!-- #primary -->
