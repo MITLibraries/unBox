@@ -32,6 +32,7 @@ get_header(); ?>
 				'exclude' => 1,
 				);
 			$categories = get_categories($args);
+			$i = 0;
 
 			foreach($categories as $category) {
 				// slideshow title
@@ -39,8 +40,8 @@ get_header(); ?>
 
 				// slideshow
 				?>
-				<div class="<?php echo $category->name; ?>">
-				<div class="cycle-slideshow" data-cycle-timeout="0" data-cycle-prev=".<?php echo $category->name; ?> .prev" data-cycle-next=".<?php echo $category->name; ?> .next"	data-cycle-slides="> div">
+				<div class="<?php echo $category->slug; ?>">
+				<div class="cycle-slideshow" data-cycle-timeout="0" data-cycle-prev=".<?php echo $category->slug; ?> .prev" data-cycle-next=".<?php echo $category->slug; ?> .next"	data-cycle-slides="> div">
 				<?php
 
 				$args = array(
@@ -49,6 +50,7 @@ get_header(); ?>
 					'posts_per_page' => -1,
 					'caller_get_posts' => 1,
 					'orderby' => 'title',
+					'order' => 'ASC',
 					'cat' => $category->term_id,
 				);
 				$the_slides = null;
@@ -56,7 +58,8 @@ get_header(); ?>
 
 				if( $the_slides->have_posts() ) {
 					while ( $the_slides->have_posts() ) : $the_slides->the_post();
-						get_template_part('content','slide');
+						// get_template_part('content','slide');
+						include( locate_template( 'content-slide.php' ) );
 					endwhile;
 				}
 
@@ -66,7 +69,7 @@ get_header(); ?>
 					<a href="#" class="next">Next</a>
 				</div>
 				<?php
-
+				$i++;
 			}
 			?>
 			</div><!-- #accordion -->
