@@ -25,6 +25,7 @@ body {
 }
 body .site {
 	max-width: 72.85714rem; /* 1020 px */
+	overflow: visible;
 }
 
 #page {
@@ -236,23 +237,24 @@ a {
 	color: #434C54;
 }
 .cycleslide {
-	width: 1008px;
+	width: 1007px;
 	height: 824px;
 	padding: 5px;
-border: 1px solid #ffe9b0;
-margin: 1px 0px;
+	border: 1px solid #ffe9b0;
+	margin: 1px 0px;
 }
 .cycleslide .caption {
 	background-color: #ffe9b0;
 	display: inline-block;
 }
 .cycleslide .caption-inner {
-margin: 5px;
-font-size: 12px;
-line-height: 21px; 
+	margin: 5px;
+	font-size: 12px;
+	line-height: 21px; 
 }
 .prev {
 	position: relative;
+	float: left;
 	left: -10px;
 	top: -400px;
 	padding: 10px;
@@ -263,6 +265,7 @@ line-height: 21px;
 }
 .next {
 	position: relative;
+	float: right;
 	right: -10px;
 	top: -400px;
 	padding: 10px;

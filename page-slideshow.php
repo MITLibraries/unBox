@@ -12,8 +12,10 @@
  * @since Twenty Twelve 1.0
  */
 
+wp_register_script('jquery-cycle2',get_stylesheet_directory_uri().'/jquery.cycle2.min.js');
 wp_enqueue_script('jquery');
 wp_enqueue_script('jquery-ui-accordion');
+wp_enqueue_script('jquery-cycle2');
 
 get_header(); ?>
 
@@ -33,6 +35,12 @@ get_header(); ?>
 				// slideshow title
 				echo '<h2><a href="#' . $category->name . '">' . $category->name . '</a></h2>';
 
+				// slideshow
+				?>
+				<div class="<?php echo $category->name; ?>">
+				<div class="cycle-slideshow" data-cycle-timeout="0" data-cycle-prev=".<?php echo $category->name; ?> .prev" data-cycle-next=".<?php echo $category->name; ?> .next"	data-cycle-slides="> div">
+				<?php
+
 				$args = array(
 					'post_type' => 'unbox_slides',
 					'post_status' => 'publish',
@@ -49,18 +57,25 @@ get_header(); ?>
 					endwhile;
 				}
 
-				wp_reset_query();
+				?>
+					</div><!-- .cycle-slideshow -->
+					<a href="#" class="prev">Prev</a>
+					<a href="#" class="next">Next</a>
+				</div>
+				<?php
 
 			}
 			?>
-			</div>
+			</div><!-- #accordion -->
 
 		</div><!-- #content -->
 	</div><!-- #primary -->
 
 	<script>
 	jQuery(document).ready(function() {	
-		jQuery("#accordion").accordion();
+		jQuery("#accordion").accordion({
+			heightStyle: "content",
+		});
 	});
 	</script>
 
