@@ -143,11 +143,43 @@ footer[role="contentinfo"] {
 	background-color: #343b43;
 	width: 100%;
 	height: 7.7857rem; /* 109 px */
+	height: 3rem; /* 36 px */
 	font-size: 18px;
 	font-weight: bold;
 	color: #e6a015;
 	text-transform: uppercase;
 	z-index: 200;
+}
+footer .site-info {
+	display: flex;
+	flex-flow: row nowrap;
+	height: 100%;	
+}
+footer[role="contentinfo"] .foot {
+	margin: auto;
+}
+footer[role="contentinfo"] a {
+	color: #e6a015;
+	text-decoration: none;
+	text-transform: capitalize;
+}
+footer[role="contentinfo"] a:hover,
+footer[role="contentinfo"] a:focus {
+	color: #e6a015;
+	text-decoration: underline;
+}
+footer[role="contentinfo"] a:after {
+	content: ' > ';
+}
+/* specific footer overrides */
+footer[role="contentinfo"] a.logo_mit img {
+	vertical-align: middle;
+}
+footer[role="contentinfo"] a.logo_mit:after {
+	content: '';
+}
+footer[role="contentinfo"] .givenow a {
+	text-transform: uppercase;
 }
 
 /* =Font styles

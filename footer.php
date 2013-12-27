@@ -13,7 +13,9 @@
 	</div><!-- #main .wrapper -->
 	<footer id="colophon" role="contentinfo">
 		<div class="site-info">
-			This is the footer.
+			<?php if ( is_active_sidebar( 'footer_bar' ) ) : ?>
+				<?php dynamic_sidebar( 'footer_bar' ); ?>
+			<?php endif; ?>
 			<?php do_action( 'twentytwelve_credits' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

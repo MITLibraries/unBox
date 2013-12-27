@@ -46,6 +46,18 @@ function diptych_widgets_init() {
 	);
 }
 add_action( 'widgets_init', 'diptych_widgets_init' );
+function footer_widgets_init() {
+	register_sidebar( array(
+			'name' => 'Footer',
+			'id' => 'footer_bar',
+			'before_widget' => '<div class="foot">',
+			'after_widget' => '</div>',
+			'before_title' => '<div class="semantic">',
+			'after_title' => '</div>',
+		)
+	);
+}
+add_action( 'widgets_init', 'footer_widgets_init' );
 
 add_filter( 'put_trailing_linebreak', '__return_false' );
 
