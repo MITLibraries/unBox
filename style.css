@@ -178,6 +178,14 @@ footer[role="contentinfo"] a.logo_mit img {
 footer[role="contentinfo"] a.logo_mit:after {
 	content: '';
 }
+footer[role="contentinfo"] .addthis_toolbox a {
+	vertical-align: middle;
+}
+footer[role="contentinfo"] .addthis_toolbox a:after {
+	/* content: ''; */
+}
+footer[role="contentinfo"] .addthis_toolbox a span.at16nc {
+}
 footer[role="contentinfo"] .givenow a {
 	text-transform: uppercase;
 }
@@ -311,6 +319,7 @@ a {
 .next:hover,
 .next:focus {
 	opacity: 1.0;
+	color: white;
 }
 /* Layouts */
 .cycleslide.layout1v .caption {
