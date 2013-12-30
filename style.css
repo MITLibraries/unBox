@@ -365,6 +365,10 @@ a {
 .cycleslide.layout2v img {
 	display: inline;
 	width: 50%;
+	margin-left: -4px;
+}
+.cycleslide.layout2v img:first-child {
+	margin-left: 0;
 }
 .cycleslide.layout2v .caption {
 	height: 100%;
