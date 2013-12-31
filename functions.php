@@ -168,12 +168,14 @@ class unbox_card_widget extends WP_Widget {
     function widget($args, $instance) {	
         extract( $args );
         $title 		= apply_filters('widget_title', $instance['title']);
-        $message 	= $instance['message'];
+        $link       = $instance['link'];
+        $image_attr = wp_get_attachment_image_src($instance['image'],'full');
+       
         ?>
             <?php echo $before_widget; ?>
-              	<div><?php echo $message; ?></div>
+              	<div><a href="<?php echo $link;?>"><img src="<?php echo $image_attr[0]; ?>" width="<?php echo $image_attr[1]; ?>" height="<?php echo $image_attr[2]; ?>"></a></div>
                 <?php if ( $title )
-                        echo $before_title . $title . $after_title; ?>
+                        echo $before_title . '<a href="'.$link.'">'. $title . '</a>' . $after_title; ?>
             <?php echo $after_widget; ?>
         <?php
     }
@@ -182,7 +184,8 @@ class unbox_card_widget extends WP_Widget {
     function update($new_instance, $old_instance) {		
 		$instance = $old_instance;
 		$instance['title'] = strip_tags($new_instance['title']);
-		$instance['message'] = strip_tags($new_instance['message']);
+		$instance['link'] = strip_tags($new_instance['link']);
+		$instance['image'] = $new_instance['image'];
         return $instance;
     }
  
@@ -190,16 +193,40 @@ class unbox_card_widget extends WP_Widget {
     function form($instance) {	
  
         $title 		= esc_attr($instance['title']);
-        $message	= esc_attr($instance['message']);
+        $link = esc_attr($instance['link']);
+        $image = esc_attr($instance['image']);
+
+		$args = array(
+		    'post_type' => 'attachment',
+		    'post_mime_type' => 'image',
+		    'numberposts' => -1,
+		    'post_status' => null,
+		    'post_parent' => null, // any parent
+		    ); 
+		$attachments = get_posts($args);
+
         ?>
          <p>
           <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label> 
           <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
         </p>
 		<p>
-          <label for="<?php echo $this->get_field_id('message'); ?>"><?php _e('Simple Message'); ?></label> 
-          <input class="widefat" id="<?php echo $this->get_field_id('message'); ?>" name="<?php echo $this->get_field_name('message'); ?>" type="text" value="<?php echo $message; ?>" />
+          <label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Link URL'); ?></label> 
+          <input class="widefat" id="<?php echo $this->get_field_id('link'); ?>" name="<?php echo $this->get_field_name('link'); ?>" type="text" value="<?php echo $link; ?>" />
         </p>
+		<p>
+          <label for="<?php echo $this->get_field_id('image'); ?>"><?php _e('Image'); ?></label> 
+          <select class="widefat" id="<?php echo $this->get_field_id('image'); ?>" name="<?php echo $this->get_field_name('image'); ?>">
+			<?php
+			if ($attachments) {
+			    foreach ($attachments as $post) {
+					?><option value="<?php echo $post->ID; ?>"<?php if($image==$post->ID){echo ' selected="selected"';}?>><?php echo $post->post_title; ?></option><?php			    	
+			    }
+			}
+			?>
+          </select>
+        </p>
+
         <?php 
     }
  
