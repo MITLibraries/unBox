@@ -21,91 +21,159 @@ wp_enqueue_script('jquery-bbq');
 
 get_header(); ?>
 
-	<div id="primary" class="site-content">
-		<div id="content" role="main">
+<div id="primary" class="site-content">
+  <div id="content" role="main">
 
-			<div id="accordion">
-			<?php 
+     <div id="accordion">
+         <?php 
 			// Get list of categories other than "Uncategorized"
-			$args = array(
-				'orderby' => 'id',
-				'exclude' => 1,
-				);
-			$categories = get_categories($args);
-			$i = 0;
+         $args = array(
+            'orderby' => 'id',
+            'exclude' => 1,
+            );
+         $categories = get_categories($args);
+         $i = 0;
 
-			foreach($categories as $category) {
-				// slideshow title
-				echo '<h2><a href="#' . $category->name . '">' . $category->name . '</a></h2>';
+         foreach($categories as $category) {
+            // slideshow title
+            echo '<h2><a href="#' . $category->name . '">' . $category->name . '</a></h2>';
 
-				// slideshow
-				?>
-				<div class="<?php echo $category->slug; ?>">
-				<div class="cycle-slideshow" data-cycle-timeout="0" data-cycle-prev=".<?php echo $category->slug; ?> .prev" data-cycle-next=".<?php echo $category->slug; ?> .next"	data-cycle-slides="> div">
-				<?php
+            // slideshow
+            ?>
+            <div class="<?php echo $category->slug; ?>">
+               <div class="slideshow" id="<?php echo $category->slug; ?>">
+                   <?php
 
-				$args = array(
-					'post_type' => 'unbox_slides',
-					'post_status' => 'publish',
-					'posts_per_page' => -1,
-					'caller_get_posts' => 1,
-					'orderby' => 'title',
-					'order' => 'ASC',
-					'cat' => $category->term_id,
-				);
-				$the_slides = null;
-				$the_slides = new WP_Query($args);
+                   $args = array(
+                      'post_type' => 'unbox_slides',
+                      'post_status' => 'publish',
+                      'posts_per_page' => -1,
+                      'caller_get_posts' => 1,
+                      'orderby' => 'title',
+                      'order' => 'ASC',
+                      'cat' => $category->term_id,
+                      );
+                   $the_slides = null;
+                   $the_slides = new WP_Query($args);
 
-				if( $the_slides->have_posts() ) {
-					while ( $the_slides->have_posts() ) : $the_slides->the_post();
-						// get_template_part('content','slide');
-						include( locate_template( 'content-slide.php' ) );
-					endwhile;
-				}
+                   if( $the_slides->have_posts() ) {
+                      while ( $the_slides->have_posts() ) : $the_slides->the_post();
+							// get_template_part('content','slide');
+                      include( locate_template( 'content-slide.php' ) );
+                      endwhile;
+                  }
 
-				?>
-					</div><!-- .cycle-slideshow -->
-					<a href="#" class="prev">Prev</a>
-					<a href="#" class="next">Next</a>
-				</div>
-				<?php
-				$i++;
-			}
-			?>
-			</div><!-- #accordion -->
+                  ?>
+              </div><!-- .cycle-slideshow -->
+              <ul class="control" data-show="<?php echo $category->slug; ?>">
+                  <li><a class="prev">Prev</a></li>
+                  <li><a class="next">Next</a></li>
+              </ul>
+          </div>
+          <?php
+          $i++;
+      }
+      ?>
+  </div><!-- #accordion -->
 
-		</div><!-- #content -->
-	</div><!-- #primary -->
+</div><!-- #content -->
+</div><!-- #primary -->
 
-	<script>
-	jQuery(document).ready(function() {	
-		// read initial state
-		var x = jQuery.bbq.getState();
-		var intFold = parseInt(x.active);
+<script>
+jQuery(document).ready(function() {	
+    var theA, theB, theC;
+    var x = jQuery.bbq.getState();
+    if (x.slide === undefined) {
+        theA = 0;
+        theB = 0;
+        theC = 0;
+    } else {
+        var theSlide = x.slide;
+        var theTempShow = theSlide.substring(0, 1);
+        var theTempSlide = theSlide.substring(1, 2);
+        if (theTempShow == "a") {
+            theA = theTempSlide;
+        } else if (theTempShow == "b") {
+            theB = theTempSlide;
+        } else if (theTempShow == "c") {
+            theC = theTempSlide;
+        }
+    }
+    var intFold = parseInt(x.active,10);
 
-		jQuery("#accordion").accordion({
-			active: intFold,
-			heightStyle: "content",
-			activate: function (event, ui) {
-				var active = jQuery("#accordion").accordion('option','active');
-				jQuery.bbq.pushState({'active':active},0);
-			}
-		});
+    jQuery("#accordion").accordion({
+        active: intFold,
+        heightStyle: "content",
+        activate: function (event, ui) {
+            var active = jQuery("#accordion").accordion('option', 'active');
+            jQuery.bbq.pushState({'active': active}, 0);
+            if (active === 0) {
+               theSlide = 'a' + jQuery("#mit").data("cycle.opts").currSlide;
+            } else if (active == 1) {
+                theSlide = 'b' + jQuery("#linguistics").data("cycle.opts").currSlide;
+            } else if (active == 2) {
+                theSlide = 'c' + jQuery("#political-writings").data("cycle.opts").currSlide;
+            }
+            jQuery.bbq.pushState({'slide': theSlide}, 0);
+        }
+    });
 
-		jQuery(window).bind('hashchange', function () {                
-		    var x = jQuery.bbq.getState();
-		    if (x.active == undefined) {
-		        jQuery("#accordion").accordion('option', 'active', 0);
-		    } else {
-		        jQuery("#accordion").accordion('option', 'active', x.active);
-		    }
-		});
+   jQuery("#mit").cycle({
+       timeout: 0,
+       slides: '> div.cycleslide',
+       startingSlide: theA
+   });
 
-		// Since the event is only triggered when the hash changes, we need to trigger
-		// the event now, to handle the hash the page may have loaded with.
-		jQuery(window).trigger('hashchange');
+   jQuery("#linguistics").cycle({
+       timeout: 0,
+       slides: '> div.cycleslide',
+       startingSlide: theB
+   });
 
-	});
-	</script>
+   jQuery("#political-writings").cycle({
+       timeout: 0,
+       slides: '> div.cycleslide',
+       startingSlide: theC
+   });
+
+    jQuery(window).bind('hashchange', function () {
+        var x = jQuery.bbq.getState();
+        var a = jQuery("#mit").data("cycle.opts").currSlide;
+        var b = jQuery("#linguistics").data("cycle.opts").currSlide;
+        var c = jQuery("#political-writings").data("cycle.opts").currSlide;
+        if (x.active === undefined) {
+            jQuery("#accordion").accordion('option', 'active', 0);
+        } else {
+            jQuery("#accordion").accordion('option', 'active', x.active);
+        }
+    });
+
+    // Since the event is only triggered when the hash changes, we need to trigger
+    // the event now, to handle the hash the page may have loaded with.
+    jQuery(window).trigger('hashchange');
+
+    jQuery(".control a").click(function () {
+        // what was clicked on
+        var theControl = jQuery(this).attr('class');
+        var theShow = jQuery(this).parents("ul.control").attr('data-show').toLowerCase();
+        var theThing = document.getElementById(theShow);
+        // get the relevant show's current slide
+        if (theControl == 'next') {
+           jQuery(theThing).cycle('next');
+       } else if (theControl == 'prev') {
+           jQuery(theThing).cycle('prev');
+       }
+       if(theShow=='mit') {
+           var theSlide = 'a' + jQuery(theThing).data("cycle.opts").currSlide;
+       } else if (theShow == 'linguistics') {
+           var theSlide = 'b' + jQuery(theThing).data("cycle.opts").currSlide;
+       } else if (theShow == 'political-writings') {
+           var theSlide = 'c' + jQuery(theThing).data("cycle.opts").currSlide;
+       }
+       jQuery.bbq.pushState({'slide': theSlide}, 0);
+   });
+
+});
+</script>
 
 <?php get_footer(); ?>

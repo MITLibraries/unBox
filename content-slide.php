@@ -19,7 +19,7 @@
 		$strLayout .= "v";
 	}
 ?>
-<div class="cycleslide <?php echo $strLayout; ?>" title="<?php echo the_title(); ?>" data-cycle-hash="<?php echo $image['id'].'&amp;active='.$i; ?>">
+<div class="cycleslide <?php echo $strLayout; ?>" title="<?php echo the_title(); ?>">
 	<div class="cycleslide-inner">
 		<div class="images">
 			<?php echo get_image_tag($image['id'],$image['alt'],$image['title'],"none","none"); ?>
