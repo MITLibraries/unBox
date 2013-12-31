@@ -81,12 +81,13 @@ get_header(); ?>
 
 <script>
 jQuery(document).ready(function() {	
-    var theA, theB, theC;
+    var theA, theB, theC, theD;
     var x = jQuery.bbq.getState();
     if (x.slide === undefined) {
         theA = 0;
         theB = 0;
         theC = 0;
+        theD = 0;
     } else {
         var theSlide = x.slide;
         var theTempShow = theSlide.substring(0, 1);
@@ -97,6 +98,8 @@ jQuery(document).ready(function() {
             theB = theTempSlide;
         } else if (theTempShow == "c") {
             theC = theTempSlide;
+        } else if (theTempShow == "d") {
+            theD = theTempSlide;
         }
     }
     var intFold = parseInt(x.active,10);
@@ -112,7 +115,9 @@ jQuery(document).ready(function() {
             } else if (active == 1) {
                 theSlide = 'b' + jQuery("#linguistics").data("cycle.opts").currSlide;
             } else if (active == 2) {
-                theSlide = 'c' + jQuery("#political-writings").data("cycle.opts").currSlide;
+                theSlide = 'c' + jQuery("#activism").data("cycle.opts").currSlide;
+            } else if (active == 2) {
+                theSlide = 'd' + jQuery("#political-writings").data("cycle.opts").currSlide;
             }
             jQuery.bbq.pushState({'slide': theSlide}, 0);
         }
@@ -130,17 +135,24 @@ jQuery(document).ready(function() {
        startingSlide: theB
    });
 
-   jQuery("#political-writings").cycle({
+   jQuery("#activism").cycle({
        timeout: 0,
        slides: '> div.cycleslide',
        startingSlide: theC
+   });
+
+   jQuery("#political-writings").cycle({
+       timeout: 0,
+       slides: '> div.cycleslide',
+       startingSlide: theD
    });
 
     jQuery(window).bind('hashchange', function () {
         var x = jQuery.bbq.getState();
         var a = jQuery("#mit").data("cycle.opts").currSlide;
         var b = jQuery("#linguistics").data("cycle.opts").currSlide;
-        var c = jQuery("#political-writings").data("cycle.opts").currSlide;
+        var c = jQuery("#activism").data("cycle.opts").currSlide;
+        var d = jQuery("#political-writings").data("cycle.opts").currSlide;
         if (x.active === undefined) {
             jQuery("#accordion").accordion('option', 'active', 0);
         } else {
@@ -167,8 +179,10 @@ jQuery(document).ready(function() {
            var theSlide = 'a' + jQuery(theThing).data("cycle.opts").currSlide;
        } else if (theShow == 'linguistics') {
            var theSlide = 'b' + jQuery(theThing).data("cycle.opts").currSlide;
-       } else if (theShow == 'political-writings') {
+       } else if (theShow == 'activism') {
            var theSlide = 'c' + jQuery(theThing).data("cycle.opts").currSlide;
+       } else if (theShow == 'political-writings') {
+           var theSlide = 'd' + jQuery(theThing).data("cycle.opts").currSlide;
        }
        jQuery.bbq.pushState({'slide': theSlide}, 0);
    });
