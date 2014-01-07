@@ -104,17 +104,20 @@ header .masthead .givenow a:after {
 #secondary {
 
 }
+#secondary .first {
+	margin-bottom: 1rem;
+}
 #secondary .card {
-	display: inline;
-	width: 25%;
-	float: left;
+	display: inline-block;
+	width: 17.75rem; /* 248 px */
+	margin: 0 0.2142rem 0 0; /* 3 px */
 }
-#secondary .card div {
-	background-color: #ccc;
+#secondary .card a {
+	text-decoration: none;
 }
-#secondary .card .title {
-	background-color: #e7a015;
-	height: 5.7142rem;
+#secondary .card a:hover,
+#secondary .card a:focus {
+	text-decoration: underline;
 	color: #000;
 }
 #secondary .card h2 {
@@ -123,9 +126,21 @@ header .masthead .givenow a:after {
 	text-transform: uppercase;
 	font-weight: bold;
 	vertical-align: middle;
+	display: table-cell;
+	line-height: 28px;
 }
 #secondary .card h2:after {
 	content: ' > ';
+}
+#secondary .card .image {
+	height: 20.714rem; /* 290 px  */
+}
+#secondary .card .title {
+	background-color: #e7a015;
+	height: 5.7142rem;
+	width: 100%;
+	color: #000;
+	display: table;
 }
 #secondary .dip {
 	display: inline;
