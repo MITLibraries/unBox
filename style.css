@@ -89,7 +89,7 @@ header .masthead .givenow a:after {
 }
 
 #main {
-	margin-bottom: 8rem;
+	margin-bottom: 3rem;
 }
 .site-content article {
 	/* Trim the fat from the bottom of the site */
@@ -152,7 +152,7 @@ footer[role="contentinfo"] {
 	/* Trim the fat from the bottom of the site */
 	margin: 0;
 	padding: 0;
-	position: fixed;
+	/* position: fixed; */
 	bottom: 0;
 	max-width: 72.85714rem; /* 1020 px */
 	background-color: #343b43;
@@ -170,6 +170,7 @@ footer .site-info {
 	flex-flow: row nowrap;
 	height: 100%;	
 }
+
 footer[role="contentinfo"] .foot {
 	margin: auto;
 }
@@ -200,9 +201,22 @@ footer[role="contentinfo"] .addthis_toolbox a:after {
 	/* content: ''; */
 }
 footer[role="contentinfo"] .addthis_toolbox a span.at16nc {
+	margin-top: 0.714285rem;
 }
 footer[role="contentinfo"] .givenow a {
 	text-transform: uppercase;
+}
+
+html.ie9 footer,
+html.ie8 footer {
+	display: table;
+}
+html.ie9 footer .foot,
+html.ie8 footer .foot {
+	display: table-cell;
+	width: 248px;
+	vertical-align: middle;
+	text-align: center;
 }
 
 /* =Font styles
