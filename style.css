@@ -98,14 +98,14 @@ header .masthead .givenow a:after {
 }
 
 #primary {
-	margin-top: 2.2142rem; /* 31px */
-	margin-bottom: 1rem;
+	margin: 2.2142rem 0 3.214285714285714rem 0; /* 31px 0 55px */
 }
 #secondary {
 
 }
 #secondary .first {
-	margin-bottom: 1rem;
+	margin-top: 1rem;
+	margin-bottom: 2.285714285714286rem;
 }
 #secondary .card {
 	display: inline-block;
@@ -146,6 +146,9 @@ header .masthead .givenow a:after {
 	display: inline;
 	width: 50%;
 	float: left;
+}
+#secondary .dip h2 {
+	margin-bottom: 1rem;
 }
 
 footer[role="contentinfo"] {
@@ -221,6 +224,14 @@ html.ie8 footer .foot {
 
 /* =Font styles
 -------------------------------------------------------------- */
+h1 {
+	font-size: 22px;
+	font-size: 1.571428571rem;
+}
+h2 {
+	font-size: 18px;
+	font-size: 1.285714285rem;
+}
 .bigger {
 	font-size: 24px;
 }
@@ -249,7 +260,7 @@ a {
   .tabs-bottom .ui-tabs-nav { clear: left; padding: 0 .2em .2em .2em; }
   .tabs-bottom .ui-tabs-nav li { top: auto; bottom: 0; margin: 0 .2em 1px 0; border-bottom: auto; border-top: 0; }
   .tabs-bottom .ui-tabs-nav li.ui-tabs-active { margin-top: -1px; padding-top: 1px; }
-  /* Hid the Home tab when the Home page is active */
+  /* Hide the Home tab when the Home page is active */
   #tabs li.ui-tabs-active a#ui-id-1 {
   	display: none;
   }
