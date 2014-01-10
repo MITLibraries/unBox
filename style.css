@@ -262,7 +262,7 @@ a {
   .tabs-bottom .ui-tabs-nav li.ui-tabs-active { margin-top: -1px; padding-top: 1px; }
   /* Hide the Home tab when the Home page is active */
   #tabs li.ui-tabs-active a#ui-id-1 {
-  	display: none;
+  	/* display: none; */
   }
   #tabs ul li.ui-tabs-active a {
 	color: #df820a;  	
