@@ -18,14 +18,14 @@ get_header(); ?>
 
 			<div id="tabs" class="tabs-bottom">
 				<ul>
-					<li><a href="#tabs-1"><?php the_field('tab_1_label'); ?></a></li>
-					<li><a href="#tabs-2"><?php the_field('tab_2_label'); ?></a></li>
-					<li><a href="#tabs-3"><?php the_field('tab_3_label'); ?></a></li>
+					<li><a href="#<?php the_field('tab_1_slug'); ?>"><?php the_field('tab_1_label'); ?></a></li>
+					<li><a href="#<?php the_field('tab_2_slug'); ?>"><?php the_field('tab_2_label'); ?></a></li>
+					<li><a href="#<?php the_field('tab_3_slug'); ?>"><?php the_field('tab_3_label'); ?></a></li>
 				</ul>
 				<div class="tabs-spacer"></div>
-				<div id="tabs-1"><?php the_field('tab_1_content'); ?></div>
-				<div id="tabs-2"><?php the_field('tab_2_content'); ?></div>
-				<div id="tabs-3"><?php the_field('tab_3_content'); ?></div>
+				<div id="<?php the_field('tab_1_slug'); ?>"><?php the_field('tab_1_content'); ?></div>
+				<div id="<?php the_field('tab_2_slug'); ?>"><?php the_field('tab_2_content'); ?></div>
+				<div id="<?php the_field('tab_3_slug'); ?>"><?php the_field('tab_3_content'); ?></div>
 			</div>
 
 		</div><!-- #content -->
