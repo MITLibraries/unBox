@@ -351,10 +351,12 @@ a {
 	left: -10px;
 	top: -400px;
 	padding: 10px;
-	background: #343b43;
+	background: url('left_20.png') no-repeat center center #343b43;
 	opacity: 0.5;
 	z-index: 101;
 	color: white;
+	width: 14px;
+	height: 40px;
 }
 .next {
 	position: relative;
@@ -362,10 +364,12 @@ a {
 	right: -10px;
 	top: -400px;
 	padding: 10px;
-	background: #343b43;
+	background: url('right_20.png') no-repeat center center #343b43;
 	opacity: 0.5;
 	z-index: 101;
 	color: white;
+	width: 14px;
+	height: 40px;
 }
 .prev:hover,
 .prev:focus,

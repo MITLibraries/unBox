@@ -66,8 +66,8 @@ get_header(); ?>
                   ?>
               </div><!-- .cycle-slideshow -->
               <ul class="control" data-show="<?php echo $category->slug; ?>">
-                  <li><a class="prev">Prev</a></li>
-                  <li><a class="next">Next</a></li>
+                  <li><a class="prev"><span class="semantic">Prev</span></a></li>
+                  <li><a class="next"><span class="semantic">Next</span></a></li>
               </ul>
           </div>
           <?php
