@@ -144,8 +144,9 @@ header .masthead .givenow a:after {
 }
 #secondary .dip {
 	display: inline;
-	width: 50%;
+	width: 48%;
 	float: left;
+	margin-right:2%;
 }
 #secondary .dip h2 {
 	margin-bottom: 1rem;
