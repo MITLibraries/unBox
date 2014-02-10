@@ -349,7 +349,7 @@ a {
 .prev {
 	position: relative;
 	float: left;
-	left: -10px;
+	left: -25px;
 	top: -400px;
 	padding: 10px;
 	background: url('left_20.png') no-repeat center center #343b43;
@@ -362,7 +362,7 @@ a {
 .next {
 	position: relative;
 	float: right;
-	right: -10px;
+	right: -25px;
 	top: -400px;
 	padding: 10px;
 	background: url('right_20.png') no-repeat center center #343b43;
