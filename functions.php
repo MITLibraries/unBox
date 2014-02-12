@@ -7,6 +7,8 @@
  * @since unBox 1.0
  */
 
+add_theme_support('post-thumbnails');
+
 /**
  * Register widget areas
  */

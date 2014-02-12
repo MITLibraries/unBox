@@ -124,24 +124,28 @@ jQuery(document).ready(function() {
     });
 
    jQuery("#mit").cycle({
+       allowWrap: false,
        timeout: 0,
        slides: '> div.cycleslide',
        startingSlide: theA
    });
 
    jQuery("#linguistics").cycle({
+       allowWrap: false,
        timeout: 0,
        slides: '> div.cycleslide',
        startingSlide: theB
    });
 
    jQuery("#activism").cycle({
+       allowWrap: false,
        timeout: 0,
        slides: '> div.cycleslide',
        startingSlide: theC
    });
 
    jQuery("#political-writings").cycle({
+       allowWrap: false,
        timeout: 0,
        slides: '> div.cycleslide',
        startingSlide: theD
