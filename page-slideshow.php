@@ -179,6 +179,15 @@ jQuery(document).ready(function() {
        } else if (theControl == 'prev') {
            jQuery(theThing).cycle('prev');
        }
+       // if we're at the beginning/end of the slideshow, hide that control
+       var newSlide = jQuery(theThing).data("cycle.opts").currSlide+1;
+       var theLength = jQuery(theThing).data("cycle.opts").slideCount;
+       if(newSlide == 1 || newSlide == theLength){
+          jQuery(this).addClass('hidden');
+       } else {
+          jQuery(".control a").removeClass('hidden');
+       }
+       // Store current slide location in fragment
        if(theShow=='mit') {
            var theSlide = 'a' + jQuery(theThing).data("cycle.opts").currSlide;
        } else if (theShow == 'linguistics') {
