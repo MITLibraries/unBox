@@ -9,6 +9,9 @@
 
 add_theme_support('post-thumbnails');
 
+// remove canonical links, allowing AddThis to see URL fragments (deep linking into slideshow)
+remove_action('wp_head','rel_canonical');
+
 /**
  * Register widget areas
  */
