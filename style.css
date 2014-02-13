@@ -111,6 +111,7 @@ header .masthead .givenow a:after {
 	display: inline-block;
 	width: 17.75rem; /* 248 px */
 	margin: 0 0.2142rem 0 0; /* 3 px */
+	vertical-align: middle;
 }
 #secondary .card a {
 	text-decoration: none;
@@ -131,6 +132,12 @@ header .masthead .givenow a:after {
 }
 #secondary .card h2 a {
 	background: url('arrow.png') no-repeat right center;
+	padding-right: 22px;
+	display: inline-block;
+}
+/* Necessary only because "Political Writings" wraps onto two lines, messing up inline-block layout */
+#secondary .card h2 a.political-writings {
+	width: 143px;
 }
 #secondary .card .image {
 	height: 20.714rem; /* 290 px  */
