@@ -129,8 +129,8 @@ header .masthead .givenow a:after {
 	display: table-cell;
 	line-height: 28px;
 }
-#secondary .card h2:after {
-	content: ' > ';
+#secondary .card h2 a {
+	background: url('arrow.png') no-repeat right center;
 }
 #secondary .card .image {
 	height: 20.714rem; /* 290 px  */
