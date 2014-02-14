@@ -8,6 +8,7 @@
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
+
 ?>
 <?php
 if ( ! is_active_sidebar( 'slideshow' ) && ! is_active_sidebar( 'diptych' ) )
@@ -35,9 +36,8 @@ if ( ! is_active_sidebar( 'slideshow' ) && ! is_active_sidebar( 'diptych' ) )
 				'post_type' => 'post',
 				'post_status' => 'publish',
 				'posts_per_page' => 5,
-				'caller_get_posts' => 1,
-				'orderby' => 'title',
-				'order' => 'ASC',
+				'orderby' => 'post_date',
+				'order' => 'DESC',
 				'tag' => 'chomsky'
 				);
 			$the_slides = null;
@@ -45,11 +45,22 @@ if ( ! is_active_sidebar( 'slideshow' ) && ! is_active_sidebar( 'diptych' ) )
 
 			if( $the_slides->have_posts() ) {
 				while ( $the_slides->have_posts() ) : $the_slides->the_post();
+					setup_postdata($post); 
+
+					$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'thumbnail');
+					$imageURL = str_replace('/chomsky/wp-content/uploads/','/news/files/',$image[0]);
+					$imageTag = '<img src="'.$imageURL.'" alt="" height="'.$image[2].'" width="'.$image[1].'">';
 					?>
-					<p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br>
-						<?php the_time('F jS, Y'); ?>
+					<p>
+						<a href="<?php the_permalink(); ?>">
+							<?php echo $imageTag; ?><br>
+							<?php the_title(); ?>
+						</a><br>
+						<?php the_time('F jS, Y'); ?><br>
 					</p>
+
 					<?php
+
 				endwhile;
 			}
 
