@@ -176,28 +176,26 @@ jQuery(document).ready(function() {
         // get the relevant show's current slide
         if (theControl == 'next') {
            jQuery(theThing).cycle('next');
-       } else if (theControl == 'prev') {
+        } else if (theControl == 'prev') {
            jQuery(theThing).cycle('prev');
-       }
-       // if we're at the beginning/end of the slideshow, hide that control
-       var newSlide = jQuery(theThing).data("cycle.opts").currSlide+1;
-       var theLength = jQuery(theThing).data("cycle.opts").slideCount;
-       if(newSlide == 1 || newSlide == theLength){
+        }
+        var newSlide = jQuery(theThing).data("cycle.opts").currSlide+1;
+        var theLength = jQuery(theThing).data("cycle.opts").slideCount;
+        if(newSlide == 1 || newSlide == theLength){
           jQuery(this).addClass('hidden');
-       } else {
+        } else {
           jQuery(".control a").removeClass('hidden');
-       }
-       // Store current slide location in fragment
-       if(theShow=='mit') {
+        }
+        if(theShow=='mit') {
            var theSlide = 'a' + jQuery(theThing).data("cycle.opts").currSlide;
-       } else if (theShow == 'linguistics') {
+        } else if (theShow == 'linguistics') {
            var theSlide = 'b' + jQuery(theThing).data("cycle.opts").currSlide;
-       } else if (theShow == 'activism') {
+        } else if (theShow == 'activism') {
            var theSlide = 'c' + jQuery(theThing).data("cycle.opts").currSlide;
-       } else if (theShow == 'political-writings') {
+        } else if (theShow == 'political-writings') {
            var theSlide = 'd' + jQuery(theThing).data("cycle.opts").currSlide;
-       }
-       jQuery.bbq.pushState({'slide': theSlide}, 0);
+        }
+        jQuery.bbq.pushState({'slide': theSlide}, 0);
    });
 
 });
