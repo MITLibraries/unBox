@@ -1,4 +1,5 @@
 <?php
+	$id = get_the_ID();
 	$image = get_field("image");
 	$image_2 = get_field("image_2");
 	$image_3 = get_field("image_3");
@@ -19,7 +20,7 @@
 		$strLayout .= "v";
 	}
 ?>
-<div class="cycleslide <?php echo $strLayout; ?>" title="<?php echo the_title(); ?>">
+<div class="cycleslide <?php echo $strLayout; ?> slide<?php echo $id; ?>" title="<?php echo the_title(); ?>">
 	<div class="cycleslide-inner">
 		<div class="images">
 			<?php echo get_image_tag($image['id'],$image['alt'],$image['title'],"none","none"); ?>
