@@ -48,7 +48,7 @@ get_header(); ?>
                       'post_type' => 'unbox_slides',
                       'post_status' => 'publish',
                       'posts_per_page' => -1,
-                      'caller_get_posts' => 1,
+                      'ignore_sticky_posts' => true,
                       'orderby' => 'title',
                       'order' => 'ASC',
                       'cat' => $category->term_id,
@@ -197,6 +197,19 @@ jQuery(document).ready(function() {
         }
         jQuery.bbq.pushState({'slide': theSlide}, 0);
    });
+
+  // Remote control of accordion via a.remote links (inline in slides)
+  jQuery("a.remote").click(function(e) {
+    var x = jQuery.bbq.getState();
+    var y = x.active;
+    if(y>=3) {
+      y = 0;
+    } else {
+      y++;
+    }
+    jQuery("#accordion").accordion('option','active',y);
+    e.preventDefault();
+  });
 
 });
 </script>
