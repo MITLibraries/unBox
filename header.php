@@ -37,16 +37,14 @@
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
 	<header id="masthead" class="site-header" role="banner">
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">unBox<br>the <em>Chomsky Archive</em></a></h1>
-			<?php $header_image = get_header_image();
-			if ( ! empty( $header_image ) ) : ?>
-				<a class="site-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo esc_url( $header_image ); ?>" class="header-image" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" /></a>
-			<?php endif; ?>
-			<?php if ( is_active_sidebar( 'masthead' ) ) : ?>
-			<div class="masthead">
-				<?php dynamic_sidebar( 'masthead' ); ?>
-			</div>
-			<?php endif; ?>			
+		<div class="logo"><a href="http://libraries.mit.edu/"><img src="/chomsky/files/2013/12/logo_mit_libraries_140x59_999.png" alt="MIT Libraries"></a></div>
+		<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">unBox <br> the <em>Chomsky Archive</em></a></h1>
+		<div class="givenow"><a href="https://giving.mit.edu/givenow/add-designation.dyn?designationId=3843690">Give Now</a></div>
+		<?php if ( is_active_sidebar( 'masthead' ) ) : ?>
+		<div class="masthead">
+			<?php dynamic_sidebar( 'masthead' ); ?>
+		</div>
+		<?php endif; ?>			
 
 		<!-- Site navigation has been removed -->
 

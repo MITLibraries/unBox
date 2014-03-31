@@ -15,10 +15,8 @@
 		<div id="footerHeader" class="footerHeader">
 			<a href="http://libraries.mit.edu/" id="logoFooter">MIT Libraries</a>
 			<div id="footerMainLink" class="">
-				<a href="https://giving.mit.edu/givenow/add-designation.dyn?designationId=3843690">Give Now</a>
-			</div>
-			<div id="footerSubLink" class="hidden-phone">
-				<a href="http://libraries.mit.edu/archives/">Institute Archives</a>
+				<a href="http://libraries.mit.edu/archives/">Institute Archives</a> | 
+				<a href="https://giving.mit.edu/givenow/add-designation.dyn?designationId=3843690">Give now <span class="hidden-phone">to the Chomsky archive</span></a>
 			</div>
 			<div id="socialFooter">
 				<?php if ( is_active_sidebar( 'footer_bar' ) ) : ?>
@@ -26,6 +24,10 @@
 				<?php endif; ?>
 			</div>
 		</div>
+		<div id="footerFooter" class="">
+			<a href="http://www.mit.edu" id="mitLogo">Massachusetts Institute of Technology</a>
+		</div>
+
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

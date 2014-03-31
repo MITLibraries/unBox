@@ -27,6 +27,7 @@ function masthead_widgets_init() {
 	);
 }
 add_action( 'widgets_init', 'masthead_widgets_init' );
+
 function slideshow_widgets_init() {
 	register_sidebar( array(
 			'name' => 'Slideshow Bar',
@@ -39,6 +40,7 @@ function slideshow_widgets_init() {
 	);
 }
 add_action( 'widgets_init', 'slideshow_widgets_init' );
+
 function diptych_widgets_init() {
 	register_sidebar( array(
 			'name' => 'Diptych Bar',
@@ -51,6 +53,7 @@ function diptych_widgets_init() {
 	);
 }
 add_action( 'widgets_init', 'diptych_widgets_init' );
+
 function footer_widgets_init() {
 	register_sidebar( array(
 			'name' => 'Footer',

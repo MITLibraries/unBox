@@ -32,14 +32,23 @@ body .site {
 	color: #343b43;
 }
 
+/* Header */
 header.site-header {
+	position: relative;
 	padding: 24px 0 0 0;
 	padding: 1.714285714rem 0 0 0;
+	width: 100%;
+}
+header .logo {
+	position: absolute;
+	right: 0;
+	top: 24px;
+	top: 1.714285714rem;
 }
 header h1.site-title {
 	/* Prevent site title from spanning full width, so re-located header image can slide to the upper right */
 	display: inline-block;
-	width: 80%;
+	margin-right: 160px;
 	font-size: 75px;
 	line-height: 80px;
 	font-family: 'Montserrat', Arial, sans-serif;
@@ -54,37 +63,19 @@ header h1.site-title em {
 	color: #df820a;
 }
 
-header a.site-logo {
-	display: inline-block;
-	width: 29%;
-	text-align: right;
+header .givenow {
+	position: absolute;
+	right: 0;
+	bottom: 0;
 }
-header a.site-logo img {
-	/* No image treatment on the site logo */
-	border-radius: none;
-	box-shadow: none;
-}
-header .masthead {
-	display: inline-block;
-	vertical-align: top;
-	width: 19%;
-}
-header .masthead .logo {
-	float: right;
-	margin-bottom: 63px;
-}
-header .masthead .givenow {
-	clear: right;
-	float: right;
-}
-header .masthead .givenow a {
+header .givenow a {
 	color: #c51a20;
 	text-decoration: none;
 	font-size: 24px;
 	font-weight: bold;
 	text-transform: uppercase;
 }
-header .masthead .givenow a:after {
+header .givenow a:after {
 	content: ' > ';
 }
 
@@ -435,6 +426,7 @@ footer[role="contentinfo"] a:hover {
     left: 190px;
     position: absolute;
     top: 51px;
+    white-space: nowrap;
 }
 #footerHeader #footerSubLink {
     position: absolute;
@@ -457,34 +449,50 @@ footer[role="contentinfo"] a:hover {
     top: 16px;
     width: 111px;
 }
-
+#footerFooter {
+	display: block;
+	font-size: 12px;
+	position: relative;
+	background: #f2f0f0;
+	margin-bottom: 50px;
+	padding-bottom: 24px;
+	border-top: 2px solid #fff;
+}
+#mitLogo {
+	display: block;
+	float: left;
+	width: 170px;
+	height: 39px;
+	position: relative;
+	margin: 25px 0 0 20px;
+	text-indent: -9999px;
+	background: transparent url(/wp-content/themes/libraries/images/logo-mit.png) no-repeat;
+}
+.copyright {
+	float: right;
+	margin-top: 19px;
+	margin-right: 20px;
+	position: relative;
+	width: 280px;
+}
+#footerFooter:after, .group:after {
+	content: "";
+	display: table;
+	clear: both;
+}
 /* =Media queries
 -------------------------------------------------------------- */
-
-/* Minimum width of 600 pixels. */
-@media screen and (max-width: 600px) {
-	header h1.site-title {
-		display: block;
-		width: auto;
-	}
-	header a.site-logo {		
-		display: block;
-		text-align: center;
-		width: 100%;
-	}
-}
-
-@media screen and (max-width: 74.85714285714286rem) {
-	body {
-		/* background-color: red !important; */
-	}
-}
-
 /* Screens narrower than */
 @media screen and (max-width: 72.85714rem) {
-	header .masthead .givenow a:after {
+	body {
+		/* Blue banner */
+		border-top: 10px solid #00f;
+	}
+	/* Strip out all arrows and carets for smaller screens */
+	header #masthead .givenow a:after {
 		content: '';
 	}
+	/* Tweak the card display for smaller screens */
 	#secondary .card {
 		max-width: 24%;
 		overflow: hidden;
@@ -496,9 +504,85 @@ footer[role="contentinfo"] a:hover {
 		background: none;
 		padding-right: 0;
 	}
+
 	.cycleslide {
 		max-width: 98%;
 		padding: 1%;
 		margin: 1px -1px;
+	}
+}
+
+/* 
+10" tablets
+7" tablets in landscape
+*/
+@media screen and (max-width: 960px) {
+	body {
+		/* Red banner */
+		border-top: 10px solid #f00;
+	}
+	/* Not sure why this is even necessary, but there you go */
+	#page {
+		padding: 0 2em;
+	}
+
+}
+
+/*
+7" tablets in portrait
+*/
+@media screen and (max-width: 600px) {
+	body {
+		/* Green banner */
+		border-top: 10px solid #0f0;
+	}
+	header .logo {
+		position: relative;
+		text-align: center;
+		margin-bottom: 24px;
+		margin-bottom: 2rem;
+	}
+	header h1.site-title {
+		position: relative;
+		font-size: 60px;
+		margin-right: 0;
+	}
+	header h1.site-title br {
+		display: none;
+	}
+	header .givenow {
+		position: relative;
+		text-align: center;
+	}
+	.hidden-phone {
+		display: none;
+	}
+	/*
+	header h1.site-title {
+		display: block;
+		text-align: center;
+	}
+	*/
+	#secondary .card {
+		max-width: 50%;
+		margin-bottom: 1rem;
+		margin-right: 1%;
+	}
+}
+
+/*
+4" phones in portrait
+*/
+@media screen and (max-width: 480px) {
+	body {
+		/* Yellow banner */
+		border-top: 10px solid #ff0;
+	}
+	header.site-header {
+		padding-top: 0;
+	}
+	header h1.site-title {
+		font-size: 30px;
+		line-height: 40px;
 	}
 }
