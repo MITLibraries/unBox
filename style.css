@@ -488,6 +488,10 @@ footer[role="contentinfo"] a:hover {
 		/* Blue banner */
 		border-top: 10px solid #00f;
 	}
+	/* Not sure why this is even necessary, but there you go */
+	#page {
+		padding: 0 2em;
+	}
 	/* Strip out all arrows and carets for smaller screens */
 	header #masthead .givenow a:after {
 		content: '';
@@ -496,6 +500,8 @@ footer[role="contentinfo"] a:hover {
 	#secondary .card {
 		max-width: 24%;
 		overflow: hidden;
+		margin-bottom: 1rem;
+		margin-bottom: 1%;
 	}
 	#secondary .card h2 {
 		font-size: 1.71428rem;
@@ -509,6 +515,43 @@ footer[role="contentinfo"] a:hover {
 		max-width: 98%;
 		padding: 1%;
 		margin: 1px -1px;
+		height: auto;
+	}
+	.cycleslide img {
+		max-width: 100%;
+		height: auto;
+	}
+	.cycleslide.layout1v .images {
+		max-width: 66%;
+	}
+	.cycleslide.layout1v img {
+		height: auto;
+	}
+	.cycleslide.layout1v .caption {
+		height: auto;
+	}
+	.cycleslide.layout1v .caption-inner {
+		padding-top: 50%;
+	}
+	.cycleslide.slide69 img {
+		max-height: 79.3902%; /* 651 px */ 
+		width: auto;
+	}
+	.cycleslide.slide84 img {
+		max-height: 84.3902%; /* 692 px */
+		width: auto;
+	}
+	.cycleslide.slide87 img {
+		max-height: 85.12195%; /* 698 px */
+		width: auto;
+	}
+	.cycleslide.slide97 img {
+		max-height: 81.9512%; /* 672 px */
+		width: auto;
+	}
+	.cycleslide.slide100 img {
+		max-height: 65.9756%; /* 541 px */
+		width: auto;
 	}
 }
 
@@ -521,11 +564,20 @@ footer[role="contentinfo"] a:hover {
 		/* Red banner */
 		border-top: 10px solid #f00;
 	}
-	/* Not sure why this is even necessary, but there you go */
-	#page {
-		padding: 0 2em;
-	}
+}
 
+
+/*
+Below about 680 px the slideshow cards start wrapping
+*/
+@media screen and (max-width: 680px) {
+	body {
+		/* Dark green banner */
+		border-top: 10px solid #090;
+	}
+	#secondary .card {
+		max-width: 50%;
+	}
 }
 
 /*
@@ -554,6 +606,11 @@ footer[role="contentinfo"] a:hover {
 		position: relative;
 		text-align: center;
 	}
+	#tabs ul.ui-tabs-nav li {
+		white-space: nowrap;
+		line-height: 28px;
+		line-height: 2rem;
+	}
 	.hidden-phone {
 		display: none;
 	}
@@ -564,9 +621,7 @@ footer[role="contentinfo"] a:hover {
 	}
 	*/
 	#secondary .card {
-		max-width: 50%;
-		margin-bottom: 1rem;
-		margin-right: 1%;
+		max-width: 48%;
 	}
 }
 
@@ -585,4 +640,41 @@ footer[role="contentinfo"] a:hover {
 		font-size: 30px;
 		line-height: 40px;
 	}
+	#tabs ul.ui-tabs-nav li {
+		display: block;
+		margin: 14px 0;
+		margin: 1rem 0;
+	}
+	/* Linearize the cards and diptych */
+	#secondary .card {
+		width: 17.75rem; /* original width 248 px */
+		max-width: 100%;
+	}
+	#secondary .dip {
+		display: block;
+		width: 100%;
+	}
+	#footerHeader {
+		height: auto;
+	}
+	#footerHeader #logoFooter {
+		left: 14px;
+		left: 1rem;
+		top: 14px;
+		top: 1rem;
+	}
+	#footerHeader #footerMainLink {
+		position: relative;
+		left: 0;
+		top: 0;
+		white-space: normal;
+		margin-top: 70px;
+		margin-top: 5rem;
+	}
+	#footerHeader #socialFooter {
+		position: relative;
+		right: 0;
+		top: 0;
+	}
+
 }
