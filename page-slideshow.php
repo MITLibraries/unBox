@@ -13,6 +13,8 @@
  */
 
 wp_register_script('jquery-cycle2',get_stylesheet_directory_uri().'/jquery.cycle2.min.js');
+wp_register_script('jquery-cycle2-swipe',get_stylesheet_directory_uri().'/jquery.cycle2.swipe.min.js');
+wp_register_script('jquery-cycle2-swipe-ios',get_stylesheet_directory_uri().'/ios6fix.js');
 wp_register_script('jquery-bbq',get_stylesheet_directory_uri().'/jquery.ba-bbq.min.js');
 wp_enqueue_script('jquery');
 wp_enqueue_script('jquery-ui-accordion');
@@ -127,28 +129,32 @@ jQuery(document).ready(function() {
        allowWrap: false,
        timeout: 0,
        slides: '> div.cycleslide',
-       startingSlide: theA
+       startingSlide: theA,
+       swipe: true
    });
 
    jQuery("#linguistics").cycle({
        allowWrap: false,
        timeout: 0,
        slides: '> div.cycleslide',
-       startingSlide: theB
+       startingSlide: theB,
+       swipe: true
    });
 
    jQuery("#activism").cycle({
        allowWrap: false,
        timeout: 0,
        slides: '> div.cycleslide',
-       startingSlide: theC
+       startingSlide: theC,
+       swipe: true
    });
 
    jQuery("#political-writings").cycle({
        allowWrap: false,
        timeout: 0,
        slides: '> div.cycleslide',
-       startingSlide: theD
+       startingSlide: theD,
+       swipe: true
    });
 
     jQuery(window).bind('hashchange', function () {
