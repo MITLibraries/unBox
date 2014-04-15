@@ -181,6 +181,9 @@ a {
 .hidden {
 	display: none;
 }
+#support a {
+	white-space: nowrap;
+}
 /* =Specific page styles
 -------------------------------------------------------------- */
 /*
@@ -485,7 +488,7 @@ footer[role="contentinfo"] a:hover {
 /* Screens narrower than */
 @media screen and (max-width: 1160px) {
 	body {
-		/* Blue banner */
+		/* Blue banner */		
 		border-top: 10px solid #00f;
 	}
 	/* Not sure why this is even necessary, but there you go */
@@ -566,8 +569,15 @@ footer[role="contentinfo"] a:hover {
 	}
 	.cycleslide {
 		width: 680px;
-		height: 544px;
+		height: 580px;
 		overflow: visible;
+	}
+	.cycleslide .cycleslide-inner {
+		font-size: 11px !important;
+		line-height: inherit;
+	}
+	.cycleslide .caption p {
+		margin-top: -10px;
 	}
 	/* Specific slide overrides
 	.cycleslide.slide69 img {
