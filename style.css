@@ -12,6 +12,10 @@
 -------------------------------------------------------------- */
 @import url('../twentytwelve/style.css');
 
+/* =Imports slideshow styles
+-------------------------------------------------------------- */
+@import url('slideshow.css');
+
 /* =Imports fonts from Google Fonts
 -------------------------------------------------------------- */
 @import url(http://fonts.googleapis.com/css?family=Montserrat:700);
@@ -251,142 +255,8 @@ a {
 #accordion h2.ui-state-active a {
 	color: #434C54;
 }
-/* Slides - general */
-.cycleslide {
-	width: 1007px;
-	height: 820px;
-	padding: 5px;
-	border: 1px solid #ffe9b0;
-	margin: 1px 0px;	
-}
-.cycleslide-inner {
-	background-color: #ffe9b0;
-	height: 100%;
-	overflow: hidden;
-}
-.cycleslide .caption {
-}
-.cycleslide .caption-inner {
-	padding: 5px;
-	font-size: 12px;
-	line-height: 21px; 
-}
-.cycleslide img {
-	border-right: 5px solid white;
-	border-bottom: 5px solid white;
-}
-.cycleslide .caption-inner p {
-	margin: 0;
-	margin-bottom: 1em;
-	padding: 0;
-}
-.prev {
-	position: relative;
-	float: left;
-	left: -25px;
-	top: -400px;
-	padding: 10px;
-	background: url('left_20.png') no-repeat center center #343b43;
-	opacity: 0.5;
-	z-index: 101;
-	color: white;
-	width: 14px;
-	height: 40px;
-}
-.next {
-	position: relative;
-	float: right;
-	right: -25px;
-	top: -400px;
-	padding: 10px;
-	background: url('right_20.png') no-repeat center center #343b43;
-	opacity: 0.5;
-	z-index: 101;
-	color: white;
-	width: 14px;
-	height: 40px;
-}
-.prev:hover,
-.prev:focus,
-.next:hover,
-.next:focus {
-	opacity: 1.0;
-	color: white;
-}
-/* Slides - layouts */
-/* 1 vertical image */
-.cycleslide.layout1v .images {
-	float: left;
-/*	width: 634px; */
-}
-.cycleslide.layout1v .caption {
-	width: auto;
-	height: 100%;
-	overflow: auto;
-}
-.cycleslide.layout1v .caption-inner {
-	padding-top: 410px;
-	padding-left: 10px;
-}
 
-/* 1 horizontal image */
-.cycleslide.layout1h {
-	overflow: hidden;
-}
-.cycleslide.layout1h .caption {
-	height: 100%;
-}
-
-/* 2 vertical images */
-.cycleslide.layout2v {
-	overflow: hidden;
-}
-.cycleslide.layout2v .images {
-	white-space: nowrap;
-}
-.cycleslide.layout2v img {
-	display: inline;
-	width: 50%;
-	margin-left: -4px;
-}
-.cycleslide.layout2v img:first-child {
-	margin-left: 0;
-}
-.cycleslide.layout2v .caption {
-	height: 100%;
-}
-
-/* 3 vertical images */
-.cycleslide.layout3v img {
-	display: inline;
-	width: 33.1%;
-	margin-left: -4px;
-}
-.cycleslide.layout3v img:last-child {
-	border-right: none;
-}
-
-/* Specific slide overrides */
-.cycleslide.slide69 img {
-	height: 651px;
-	width: auto;
-}
-.cycleslide.slide84 img {
-	height: 692px;
-	width: auto;
-}
-.cycleslide.slide87 img {
-	height: 698px;
-	width: auto;
-}
-.cycleslide.slide97 img {
-	height: 672px;
-	width: auto;
-}
-.cycleslide.slide100 img {
-	height: 541px;
-	width: auto;
-}
+/* Slideshow styles are being loaded externally */
 
 /* Footer */
 footer[role="contentinfo"] {
@@ -487,10 +357,6 @@ footer[role="contentinfo"] a:hover {
 -------------------------------------------------------------- */
 /* Screens narrower than */
 @media screen and (max-width: 1160px) {
-	body {
-		/* Blue banner */		
-		border-top: 10px solid #00f;
-	}
 	/* Not sure why this is even necessary, but there you go */
 	#page {
 		padding: 0 2em;
@@ -513,123 +379,14 @@ footer[role="contentinfo"] a:hover {
 		background: none;
 		padding-right: 0;
 	}
-
-	.cycleslide {
-		max-width: 98%;
-		padding: 1%;
-		margin: 1px -1px;
-		height: auto;
-	}
-	.cycleslide img {
-		max-width: 100%;
-		height: auto;
-	}
-	.cycleslide.layout1v .images {
-		max-width: 66%;
-	}
-	.cycleslide.layout1v img {
-		height: auto;
-	}
-	.cycleslide.layout1v .caption {
-		height: auto;
-	}
-	.cycleslide.layout1v .caption-inner {
-		padding-top: 50%;
-	}
-	.cycleslide.slide69 img {
-		max-height: 79.3902%; /* 651 px */ 
-		width: auto;
-	}
-	.cycleslide.slide84 img {
-		max-height: 84.3902%; /* 692 px */
-		width: auto;
-	}
-	.cycleslide.slide87 img {
-		max-height: 81.12195%; /* 81.12195% /698 px */
-		width: auto;
-	}
-	.cycleslide.slide97 img {
-		max-height: 78%; /* 81.9512% / 672 px */
-		width: auto;
-	}
-	.cycleslide.slide100 img {
-		max-height: 62.4%; /* 65.9756% / 541 px */
-		width: auto;
-	}
 }
-
-/* 
-10" tablets
-7" tablets in landscape
-*/
-@media screen and (max-width: 960px) {
-	body {
-		/* Red banner */
-		border-top: 10px solid #f00;
-	}
-	.cycleslide {
-		width: 697px; /* 98% 680px; */
-		max-width: 98%;
-		height: 600px;
-		overflow: visible;
-	}
-	.cycleslide .cycleslide-inner {
-		font-size: 11px !important;
-		line-height: inherit;
-	}
-	.cycleslide .caption p {
-		margin-top: -10px;
-	}
-	/* Specific slide overrides
-	.cycleslide.slide69 img {
-		height: 437px;
-	}
-	.cycleslide.slide84 img {
-		height: 459.0827px;
-	}
-	.cycleslide.slide87 img {
-		height: 463.0634px;
-	}
-	.cycleslide.slide97 img {
-		height: 445.8145px;
-	}
-	.cycleslide.slide100 img {
-		height: 358.9073px;
-	}
-	*/
-}
-
 
 /*
 Below about 680 px the slideshow cards start wrapping
 */
 @media screen and (max-width: 680px) {
-	body {
-		/* Dark green banner */
-		border-top: 10px solid #090;
-	}
 	#secondary .card {
 		max-width: 50%;
-	}
-	.cycleslide {
-		width: 600px;
-		height: 480px;
-	}
-	/* Specific slide overrides */
-	.cycleslide.slide69 img {
-		height: 381.073px;
-	}
-	.cycleslide.slide84 img {
-		height: 405.073px;
-	}
-	.cycleslide.slide87 img {
-		height: 408.5854px;
-	}
-	.cycleslide.slide97 img {
-		height: 393.3658px;
-	}
-	.cycleslide.slide100 img {
-		height: 316.6829px;
 	}
 }
 
@@ -637,10 +394,6 @@ Below about 680 px the slideshow cards start wrapping
 7" tablets in portrait
 */
 @media screen and (max-width: 600px) {
-	body {
-		/* Green banner */
-		border-top: 10px solid #0f0;
-	}
 	header .logo {
 		position: relative;
 		text-align: center;
@@ -676,42 +429,12 @@ Below about 680 px the slideshow cards start wrapping
 	#secondary .card {
 		max-width: 48%;
 	}
-	.cycleslide {
-		width: 100%; /* 480px */
-		height: auto; /* 80% 384px */
-	}
-	.cycleslide.layout1v .images {
-		max-width: 55%;
-	}
-	.cycleslide.layout1v .caption-inner {
-		padding-top: inherit;
-	}
-	/* Specific slide overrides */
-	.cycleslide.slide69 img {
-		height: 304.8584px;
-	}
-	.cycleslide.slide84 img {
-		height: 324.0584px;
-	}
-	.cycleslide.slide87 img {
-		height: 326.8683px;
-	}
-	.cycleslide.slide97 img {
-		height: 314.6926px;
-	}
-	.cycleslide.slide100 img {
-		height: 243.3463px;
-	}
 }
 
 /*
 4" phones in portrait
 */
 @media screen and (max-width: 480px) {
-	body {
-		/* Yellow banner */
-		border-top: 10px solid #ff0;
-	}
 	header.site-header {
 		padding-top: 0;
 	}
@@ -755,44 +478,4 @@ Below about 680 px the slideshow cards start wrapping
 		right: 0;
 		top: 0;
 	}
-	/* Linearize slides */
-	.cycleslide {
-		max-width: 98%;
-		height: auto;
-	}
-	.cycleslide .images,
-	.cycleslide .caption {
-		display: block;
-		max-width: 480px;
-	}
-	.cycleslide.layout1v .images,
-	.cycleslide.layout1h .images,
-	.cycleslide.layout2v .images,
-	.cycleslide.layout3v .images {
-		max-width: 100%;
-		float: inherit;
-	}
-	.cycleslide.layout1v .caption-inner {
-		padding: 10px;
-	}
-	.cycleslide.slide69 img,
-	.cycleslide.slide84 img,
-	.cycleslide.slide87 img,
-	.cycleslide.slide97 img,
-	.cycleslide.slide100 img {
-		width: 100%;
-		height: auto;
-		display: block;
-	}
-	.next {
-		position: fixed;
-		right: 0;
-		top: 40%;
-	}
-	.prev {
-		position: fixed;
-		left: 0;
-		top: 40%;
-	}
-
 }
