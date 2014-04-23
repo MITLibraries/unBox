@@ -130,6 +130,7 @@ jQuery(document).ready(function() {
        timeout: 0,
        slides: '> div.cycleslide',
        startingSlide: theA,
+       autoHeight: 'container',
        swipe: true
    });
 
@@ -138,6 +139,7 @@ jQuery(document).ready(function() {
        timeout: 0,
        slides: '> div.cycleslide',
        startingSlide: theB,
+       autoHeight: 'container',
        swipe: true
    });
 
@@ -146,6 +148,7 @@ jQuery(document).ready(function() {
        timeout: 0,
        slides: '> div.cycleslide',
        startingSlide: theC,
+       autoHeight: 'container',
        swipe: true
    });
 
@@ -154,6 +157,7 @@ jQuery(document).ready(function() {
        timeout: 0,
        slides: '> div.cycleslide',
        startingSlide: theD,
+       autoHeight: 'container',
        swipe: true
    });
 
