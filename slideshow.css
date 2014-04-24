@@ -140,8 +140,9 @@
 /* Screens narrower than */
 @media screen and (max-width: 1160px) {
 	body {
-		/* Blue banner */		
+		/* Blue banner 
 		border-top: 5px solid #00f;
+		*/
 	}
 	.slideshow {
 		margin: 10px auto; /* this centers all slides, as the containers change shape around them */
@@ -149,7 +150,6 @@
 		height: 812px;
 	}
 	.cycleslide {
-		border: 1px solid #00f;
 		width: 939px;
 		height: 800px;
 	}
@@ -182,15 +182,15 @@ iPad portrait
 */
 @media screen and (max-width: 1023px) {
 	body {
-		/* Red banner */
+		/* Red banner
 		border-top: 5px solid #f00;
+		*/
 	}
 	.slideshow {
 		width: 695px;
 		height: 601px;
 	}
 	.cycleslide {
-		border: 1px solid #f00;
 		width: 683px;
 		height: 589px;
 	}
@@ -237,15 +237,15 @@ Nexus portrait
 */
 @media screen and (max-width: 767px) {
 	body {
-		/* Dark green banner */
+		/* Dark green banner 
 		border-top: 5px solid #090;
+		*/
 	}
 	.slideshow {
 		width: 527px;
 		height: 521px;
 	}
 	.cycleslide {
-		border: 1px solid #090;
 		width: 515px;
 		height: 509px;
 	}
@@ -319,17 +319,17 @@ Nexus portrait
 */
 @media screen and (max-width: 599px) {
 	body {
-		/* Green banner */
+		/* Green banner
 		border-top: 5px solid #0f0;
+		*/
 	}
 	.slideshow {
 		width: 408px;
 		height: 326px;
 	}
 	.cycleslide {
-		border: 1px solid #0f0;
 		width: 396px;
-		height: 314px;
+		min-height: 314px;
 		height: auto;
 	}
 	.next {
@@ -344,10 +344,17 @@ Nexus portrait
 	}
 	/* Layout 1v */
 	.cycleslide.layout1v .images {
-		margin-bottom: -10px;
+		float: none;
+		margin-bottom: -5px;
 	}
 	.cycleslide.layout1v img {
-		height: 314px;
+		width: 100%;
+		border: none;
+		border-bottom: 5px solid white; 
+		height: auto;
+	}
+	.cycleslide.layout1v .caption-inner {
+		padding: 5px;
 	}
 	/* Layout 1h */
 	.cycleslide.layout1h img {
@@ -378,17 +385,6 @@ Nexus portrait
 	.cycleslide.slide87 img {
 		max-height: 273px;
 	}
-	.cycleslide.slide95 .images {
-		float: none;
-		width: 100%;
-	}
-	.cycleslide.slide95 img {
-		width: 396px;
-		height: auto;
-	}
-	.cycleslide.slide95 .caption-inner {
-		padding: 5px;
-	}
 	.cycleslide.slide97 img {
 		max-height: 262px;
 	}
@@ -405,22 +401,57 @@ iPhone portrait
 */
 @media screen and (max-width: 480px) {
 	body {
-		/* Yellow banner */
+		/* Yellow banner
 		border-top: 5px solid #ff0;
+		*/
 	}
 	.slideshow {
 		width: 100%;
 		height: auto;
+		margin: 10px 0;
 	}
 	.cycleslide {
 		width: 100%;
-		margin: 10px 0;
+		margin: 0;
 		padding: 0;
 		border: 0;
 	}
 	/* Layout 1v */
 	/* Layout 1h */
+	.cycleslide.layout1h img {
+		width: 100%;
+	}	
 	/* Layout 2v */
+	.cycleslide.layout2v .images {
+		margin-bottom: -5px;
+	}
+	.cycleslide.layout2v img {
+		display: block;
+		width: 100%;		
+		border: none;
+		border-bottom: 5px solid white; 
+		height: auto;
+		max-height: none;
+		margin: 0;
+	}
+	.cycleslide.layout2v .caption-inner {
+		padding: 5px;
+	}
 	/* Layout 3v */
+	.cycleslide.layout3v .images {
+		margin-bottom: -5px;
+	}
+	.cycleslide.layout3v img {
+		display: block;
+		width: 100%;		
+		border: none;
+		border-bottom: 5px solid white; 
+		height: auto;
+		max-height: none;
+		margin: 0;
+	}
+	.cycleslide.layout3v .caption-inner {
+		padding: 5px;
+	}
 	/* Slide-specific overrides */
 }
