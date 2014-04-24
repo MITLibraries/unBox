@@ -141,206 +141,244 @@
 @media screen and (max-width: 1160px) {
 	body {
 		/* Blue banner */		
-		border-top: 10px solid #00f;
+		border-top: 5px solid #00f;
+	}
+	.slideshow {
+		margin: 10px auto; /* this centers all slides, as the containers change shape around them */
+		width: 951px;
+		height: 812px;
 	}
 	.cycleslide {
-		max-width: 98%;
-		padding: 1%;
-		margin: 1px -1px;
-		height: auto;
+		border: 1px solid #00f;
+		width: 939px;
+		height: 800px;
 	}
-	.cycleslide img {
-		max-width: 100%;
-		height: auto;
-	}
-	.cycleslide.layout1v .images {
-		max-width: 66%;
-	}
+	/* Layout 1v */
 	.cycleslide.layout1v img {
-		height: auto;
-	}
-	.cycleslide.layout1v .caption {
-		height: auto;
-	}
-	.cycleslide.layout1v .caption-inner {
-		padding-top: 50%;
-	}
-	.cycleslide.slide69 img {
-		max-height: 79.3902%; /* 651 px */ 
+		height: 800px;
 		width: auto;
 	}
-	.cycleslide.slide84 img {
-		max-height: 84.3902%; /* 692 px */
-		width: auto;
-	}
-	.cycleslide.slide87 img {
-		max-height: 81.12195%; /* 81.12195% /698 px */
-		width: auto;
-	}
+	/* Layout 1h */
+	/* Layout 2v */
+	/* Layout 3v */
+	/* Slide-specific overrides */
 	.cycleslide.slide97 img {
-		max-height: 78%; /* 81.9512% / 672 px */
-		width: auto;
+		max-height: 626px;
 	}
 	.cycleslide.slide100 img {
-		max-height: 62.4%; /* 65.9756% / 541 px */
-		width: auto;
+		max-height: 504px;
 	}
 }
 
 /* 
 10" tablets
 7" tablets in landscape
+---
+1024 x 768
+800 x 600
+Nexus landscape
+iPad landscape
+iPad portrait
 */
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1023px) {
 	body {
 		/* Red banner */
-		border-top: 10px solid #f00;
+		border-top: 5px solid #f00;
+	}
+	.slideshow {
+		width: 695px;
+		height: 601px;
 	}
 	.cycleslide {
-		width: 697px; /* 98% 680px; */
-		max-width: 98%;
-		height: 600px;
-		overflow: visible;
+		border: 1px solid #f00;
+		width: 683px;
+		height: 589px;
 	}
-	.cycleslide .cycleslide-inner {
-		font-size: 11px !important;
-		line-height: inherit;
+	.cycleslide .caption-inner {
+		padding-top: 0;
 	}
-	.cycleslide .caption p {
-		margin-top: -10px;
+	/* Layout 1v */
+	.cycleslide.layout1v .caption-inner {
+		padding-top: 150px;
 	}
-	/* Specific slide overrides
+	.cycleslide.layout1v img {
+		height: 589px;
+	}
+	/* Layout 1h */
+	.cycleslide.layout1h img {
+		width: 683px;
+	}
+	/* Layout 2v */
+	/* Layout 3v */
+	/* Slide-specific overrides */
 	.cycleslide.slide69 img {
-		height: 437px;
+		max-height: 439px;
 	}
 	.cycleslide.slide84 img {
-		height: 459.0827px;
+		max-height: 468px;
 	}
 	.cycleslide.slide87 img {
-		height: 463.0634px;
+		max-height: 472px;
 	}
 	.cycleslide.slide97 img {
-		height: 445.8145px;
+		max-height: 454px;
 	}
 	.cycleslide.slide100 img {
-		height: 358.9073px;
+		max-height: 366px;
 	}
-	*/
 }
 
 
 /*
 Below about 680 px the slideshow cards start wrapping
+---
+768 x 1024
+Nexus portrait
 */
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 767px) {
 	body {
 		/* Dark green banner */
-		border-top: 10px solid #090;
+		border-top: 5px solid #090;
+	}
+	.slideshow {
+		width: 527px;
+		height: 521px;
 	}
 	.cycleslide {
-		width: 600px;
-		height: 480px;
+		border: 1px solid #090;
+		width: 515px;
+		height: 509px;
 	}
-	/* Specific slide overrides */
+	/* Layout 1v */
+	.cycleslide.layout1v .caption-inner {
+		padding-top: 0px;
+	}
+	.cycleslide.layout1v img {
+		height: 509px;
+	}
+	/* Layout 1h */
+	.cycleslide.layout1h img {
+		width: 515px;
+	}
+	/* Layout 2v */
+	/* Layout 3v */
+	/* Slide-specific overrides */
+	.cycleslide.slide21 .images {
+		width: 345px;
+		overflow: hidden;
+		border-right: 5px solid white;
+	}
+	.cycleslide.slide54 .images {
+		width: 335px;
+		overflow: hidden;
+		border-right: 5px solid white;
+	}
+	.cycleslide.slide54 img {
+		margin-left: -34px;
+	}
+	.cycleslide.slide67 img {
+		height: 460px;
+	}
 	.cycleslide.slide69 img {
-		height: 381.073px;
+		max-height: 331px;
 	}
 	.cycleslide.slide84 img {
-		height: 405.073px;
+		max-height: 353px;
 	}
 	.cycleslide.slide87 img {
-		height: 408.5854px;
+		max-height: 356px;
+	}
+	.cycleslide.slide93 .images {
+		width: 372px;
+		overflow: hidden;
+		border-right: 5px solid white;
+	}
+	.cycleslide.slide93 img {
+		margin-left: -16px;
+	}
+	.cycleslide.slide95 .images {
+		width: 392px;
+		overflow: hidden;
+		border-right: 5px solid white;
+	}
+	.cycleslide.slide95 img {
+		margin-left: -47px;
 	}
 	.cycleslide.slide97 img {
-		height: 393.3658px;
+		max-height: 342px;
 	}
 	.cycleslide.slide100 img {
-		height: 316.6829px;
+		max-height: 275px;
 	}
 }
 
 /*
 7" tablets in portrait
+---
+600 x 800
 */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 599px) {
 	body {
 		/* Green banner */
-		border-top: 10px solid #0f0;
+		border-top: 5px solid #0f0;
+	}
+	.slideshow {
+		width: 408px;
+		height: 326px;
 	}
 	.cycleslide {
-		width: 100%; /* 480px */
-		height: auto; /* 80% 384px */
+		border: 1px solid #0f0;
+		width: 396px;
+		height: 314px;
+		height: auto;
 	}
+	/* Layout 1v */
 	.cycleslide.layout1v .images {
-		max-width: 55%;
+		margin-bottom: -10px;
 	}
-	.cycleslide.layout1v .caption-inner {
-		padding-top: inherit;
+	.cycleslide.layout1v img {
+		height: 314px;
 	}
-	/* Specific slide overrides */
+	/* Layout 1h */
+	.cycleslide.layout1h img {
+		width: 396px;
+	}
+	/* Layout 2v */
+	/* Layout 3v */
+	/* Slide-specific overrides */
+	.cycleslide.slide21 .images {
+		width: auto;
+		border-right: none;
+	}
 	.cycleslide.slide69 img {
-		height: 304.8584px;
-	}
-	.cycleslide.slide84 img {
-		height: 324.0584px;
-	}
-	.cycleslide.slide87 img {
-		height: 326.8683px;
-	}
-	.cycleslide.slide97 img {
-		height: 314.6926px;
-	}
-	.cycleslide.slide100 img {
-		height: 243.3463px;
+		max-height: 254px;
 	}
 }
 
 /*
-4" phones in portrait
+4" phones in portrait - linearize
+---
+iPhone tablet
+iPhone portrait
 */
 @media screen and (max-width: 480px) {
 	body {
 		/* Yellow banner */
-		border-top: 10px solid #ff0;
+		border-top: 5px solid #ff0;
 	}
-	/* Linearize slides */
-	.cycleslide {
-		max-width: 98%;
-		height: auto;
-	}
-	.cycleslide .images,
-	.cycleslide .caption {
-		display: block;
-		max-width: 480px;
-	}
-	.cycleslide.layout1v .images,
-	.cycleslide.layout1h .images,
-	.cycleslide.layout2v .images,
-	.cycleslide.layout3v .images {
-		max-width: 100%;
-		float: inherit;
-	}
-	.cycleslide.layout1v .caption-inner {
-		padding: 10px;
-	}
-	.cycleslide.slide69 img,
-	.cycleslide.slide84 img,
-	.cycleslide.slide87 img,
-	.cycleslide.slide97 img,
-	.cycleslide.slide100 img {
+	.slideshow {
 		width: 100%;
 		height: auto;
-		display: block;
 	}
-	.next {
-		position: fixed;
-		right: 0;
-		top: 40%;
+	.cycleslide {
+		width: 100%;
+		margin: 10px 0;
+		padding: 0;
+		border: 0;
 	}
-	.prev {
-		position: fixed;
-		left: 0;
-		top: 40%;
-	}
-
+	/* Layout 1v */
+	/* Layout 1h */
+	/* Layout 2v */
+	/* Layout 3v */
+	/* Slide-specific overrides */
 }
