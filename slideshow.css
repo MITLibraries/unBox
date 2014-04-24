@@ -332,6 +332,16 @@ Nexus portrait
 		height: 314px;
 		height: auto;
 	}
+	.next {
+		position: fixed;
+		top: 40%;
+		right: 0;
+	}
+	.prev {
+		position: fixed;
+		top: 40%;
+		left: 0;
+	}
 	/* Layout 1v */
 	.cycleslide.layout1v .images {
 		margin-bottom: -10px;
@@ -346,12 +356,44 @@ Nexus portrait
 	/* Layout 2v */
 	/* Layout 3v */
 	/* Slide-specific overrides */
-	.cycleslide.slide21 .images {
+	.cycleslide.slide21 .images,
+	.cycleslide.slide54 .images,
+	.cycleslide.slide93 .images,
+	.cycleslide.slide95 .images {
 		width: auto;
 		border-right: none;
 	}
+	.cycleslide.slide54 img,
+	.cycleslide.slide93 img,
+	.cycleslide.slide95 img {
+		margin-left: 0px;
+	}
+
 	.cycleslide.slide69 img {
 		max-height: 254px;
+	}
+	.cycleslide.slide84 img {
+		max-height: 270px;
+	}
+	.cycleslide.slide87 img {
+		max-height: 273px;
+	}
+	.cycleslide.slide95 .images {
+		float: none;
+		width: 100%;
+	}
+	.cycleslide.slide95 img {
+		width: 396px;
+		height: auto;
+	}
+	.cycleslide.slide95 .caption-inner {
+		padding: 5px;
+	}
+	.cycleslide.slide97 img {
+		max-height: 262px;
+	}
+	.cycleslide.slide100 img {
+		max-height: 211px;
 	}
 }
 
