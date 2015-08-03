@@ -314,7 +314,7 @@ footer[role="contentinfo"] a:hover {
     top: 20px;
 }
 #logoFooter {
-    background: url("http://libraries.mit.edu/wp-content/themes/libraries/images/logo-black.png") no-repeat scroll 0 0 rgba(0,0,0,0);
+    background: url("/wp-content/themes/libraries/images/logo-black.png") no-repeat scroll 0 0 rgba(0,0,0,0);
     height: 47px;
     left: 18px;
     position: absolute;
