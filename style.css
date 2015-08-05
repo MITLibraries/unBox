@@ -1,11 +1,11 @@
 /*
  Theme Name:     unBox
- Theme URI:      http://example.com/unbox-chomsky/
- Description:    This is a theme for the MIT Libraries "unBox the Chomsky Archives" microsite, derived from mockups designed by Ilavenil Subbiah.
+ Theme URI:      https://github.com/MITLibraries/unBox
+ Description:    This is a theme for the MIT Libraries <a href="//libraries.mit.edu/chomsky">unBox the Chomsky Archives</a> microsite, derived from mockups designed by <a href="http://www.subbiahdesign.com/">Ilavenil Subbiah</a>.
  Author:         Matt Bernhardt
  Author URI:     http://libraries.mit.edu
  Template:       twentytwelve
- Version:        1.0.0
+ Version:        1.1.8
 */
 
 /* =Imports styles from the parent theme
@@ -18,7 +18,7 @@
 
 /* =Imports fonts from Google Fonts
 -------------------------------------------------------------- */
-@import url(http://fonts.googleapis.com/css?family=Montserrat:700);
+@import url(//fonts.googleapis.com/css?family=Montserrat:700);
 
 /* =Theme customization starts here
 -------------------------------------------------------------- */
@@ -314,7 +314,7 @@ footer[role="contentinfo"] a:hover {
     top: 20px;
 }
 #logoFooter {
-    background: url("http://libraries.mit.edu/wp-content/themes/libraries/images/logo-black.png") no-repeat scroll 0 0 rgba(0,0,0,0);
+    background: url("/wp-content/themes/libraries/images/logo-black.png") no-repeat scroll 0 0 rgba(0,0,0,0);
     height: 47px;
     left: 18px;
     position: absolute;
