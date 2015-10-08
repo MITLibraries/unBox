@@ -29,8 +29,8 @@ if ( ! is_active_sidebar( 'slideshow' ) && ! is_active_sidebar( 'diptych' ) )
 		<div class="dip">
 			<h2>Recent Updates</h2>
 		<?php
-			// switch to news blog
-			switch_to_blog(7);
+			// Switch to news blog.
+			switch_to_blog( 7 );
 
 			$args = array(
 				'post_type' => 'post',
@@ -38,17 +38,17 @@ if ( ! is_active_sidebar( 'slideshow' ) && ! is_active_sidebar( 'diptych' ) )
 				'posts_per_page' => 5,
 				'orderby' => 'post_date',
 				'order' => 'DESC',
-				'tag' => 'chomsky'
+				'tag' => 'chomsky',
 				);
 			$the_slides = null;
-			$the_slides = new WP_Query($args);
+			$the_slides = new WP_Query( $args );
 
-			if( $the_slides->have_posts() ) {
+			if ( $the_slides->have_posts() ) {
 				while ( $the_slides->have_posts() ) : $the_slides->the_post();
-					setup_postdata($post); 
+					setup_postdata( $post );
 
-					$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'thumbnail');
-					$imageURL = str_replace('/chomsky/wp-content/uploads/','/news/files/',$image[0]);
+					$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'thumbnail' );
+					$imageURL = str_replace( '/chomsky/wp-content/uploads/' , '/news/files/' , $image[0] );
 					$imageTag = '<img src="'.$imageURL.'" alt="" height="'.$image[2].'" width="'.$image[1].'">';
 					?>
 					<p>
@@ -56,7 +56,7 @@ if ( ! is_active_sidebar( 'slideshow' ) && ! is_active_sidebar( 'diptych' ) )
 							<?php echo $imageTag; ?><br>
 							<?php the_title(); ?>
 						</a><br>
-						<?php the_time('F jS, Y'); ?><br>
+						<?php the_time( 'F jS, Y' ); ?><br>
 					</p>
 
 					<?php
@@ -64,7 +64,7 @@ if ( ! is_active_sidebar( 'slideshow' ) && ! is_active_sidebar( 'diptych' ) )
 				endwhile;
 			}
 
-			// switch back to Chomsky site
+			// Switch back to Chomsky site.
 			restore_current_blog();
 		?>
 		</div>
