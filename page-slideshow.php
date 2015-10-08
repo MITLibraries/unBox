@@ -55,29 +55,28 @@ get_header(); ?>
 					'cat' => $category->term_id,
 				);
 				$the_slides = null;
-				$the_slides = new WP_Query($args);
+				$the_slides = new WP_Query( $args );
 
-                   if( $the_slides->have_posts() ) {
-                      while ( $the_slides->have_posts() ) : $the_slides->the_post();
-							// get_template_part('content','slide');
-                      include( locate_template( 'content-slide.php' ) );
-                      endwhile;
-                  }
+				if ( $the_slides->have_posts() ) {
+					while ( $the_slides->have_posts() ) : $the_slides->the_post();
+						// get_template_part('content','slide');
+					include( locate_template( 'content-slide.php' ) );
+					endwhile;
+				}
 
-                  ?>
-              </div><!-- .cycle-slideshow -->
-              <ul class="control" data-show="<?php echo $category->slug; ?>">
-                  <li><a class="prev"><span class="semantic">Prev</span></a></li>
-                  <li><a class="next"><span class="semantic">Next</span></a></li>
-              </ul>
-          </div>
-          <?php
-          $i++;
-      }
-      ?>
-  </div><!-- #accordion -->
-
-</div><!-- #content -->
+				?>
+				</div><!-- .cycle-slideshow -->
+				<ul class="control" data-show="<?php echo $category->slug; ?>">
+					<li><a class="prev"><span class="semantic">Prev</span></a></li>
+					<li><a class="next"><span class="semantic">Next</span></a></li>
+				</ul>
+			</div>
+			<?php
+			$i++;
+		}
+		?>
+		</div><!-- #accordion -->
+	</div><!-- #content -->
 </div><!-- #primary -->
 
 <script>
