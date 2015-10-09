@@ -169,24 +169,25 @@ add_filter( 'get_pages', 'add_unbox_tabs_to_dropdown' );
  * Enable front page tabs
  */
 function enable_front_page_unbox_tabs( $query ) {
-	if ( '' == $query->query_vars['post_type'] && 0 != $query->query_vars['page_id'] )
+	if ( '' == $query->query_vars['post_type'] && 0 != $query->query_vars['page_id'] ) {
 		$query->query_vars['post_type'] = array( 'page', 'unbox_tabs' );
+	}
 }
 add_action( 'pre_get_posts', 'enable_front_page_unbox_tabs' );
 
 /**
- * Example widget code 
+ * Example widget code
  * From http://pippinsplugins.com/simple-wordpress-widget-template/
  */
 class unbox_card_widget extends WP_Widget {
 
-	/** constructor -- name this the same as the class above */
+	/** Constructor -- name this the same as the class above */
 	function unbox_card_widget() {
-		parent::WP_Widget(false, $name = 'Image Card Widget');	
+		parent::WP_Widget( false, $name = 'Image Card Widget' );
 	}
 
 	/** @see WP_Widget::widget -- do not rename this */
-	function widget($args, $instance) {	
+	function widget( $args , $instance ) {
 		extract( $args );
 		$title 		= apply_filters( 'widget_title', $instance['title'] );
 		$link       = $instance['link'];
@@ -195,14 +196,16 @@ class unbox_card_widget extends WP_Widget {
 		?>
 			<?php echo $before_widget; ?>
 				<div class="image"><a href="<?php echo $link;?>"><img src="<?php echo $image_attr[0]; ?>" width="<?php echo $image_attr[1]; ?>" height="<?php echo $image_attr[2]; ?>"></a></div>
-				<?php if ( $title )
-					echo $before_title . '<a href="'.$link.'" class="'.sanitize_title_with_dashes( $title ).'">'. $title . '</a>' . $after_title; ?>
+				<?php if ( $title ) {
+					echo $before_title . '<a href="'.$link.'" class="'.sanitize_title_with_dashes( $title ).'">'. $title . '</a>' . $after_title; 
+				}
+				?>
 			<?php echo $after_widget; ?>
 		<?php
 	}
 
 	/** @see WP_Widget::update -- do not rename this */
-	function update($new_instance, $old_instance) {
+	function update( $new_instance , $old_instance ) {
 		$instance = $old_instance;
 		$instance['title'] = strip_tags( $new_instance['title'] );
 		$instance['link'] = strip_tags( $new_instance['link'] );
@@ -211,7 +214,7 @@ class unbox_card_widget extends WP_Widget {
 	}
 
 	/** @see WP_Widget::form -- do not rename this */
-	function form($instance) {
+	function form( $instance ) {
 
 		$title = esc_attr( $instance['title'] );
 		$link = esc_attr( $instance['link'] );
@@ -222,7 +225,7 @@ class unbox_card_widget extends WP_Widget {
 			'post_mime_type' => 'image',
 			'numberposts' => -1,
 			'post_status' => null,
-			'post_parent' => null, // any parent
+			'post_parent' => null, // Any parent.
 		);
 		$attachments = get_posts( $args );
 
@@ -241,7 +244,7 @@ class unbox_card_widget extends WP_Widget {
 			<?php
 			if ( $attachments ) {
 				foreach ( $attachments as $post ) {
-					?><option value="<?php echo $post->ID; ?>"<?php if ( $image == $post->ID ) { echo ' selected="selected"'; }?>><?php echo $post->post_title; ?></option><?php			    	
+					?><option value="<?php echo $post->ID; ?>"<?php if ( $image == $post->ID ) { echo ' selected="selected"'; }?>><?php echo $post->post_title; ?></option><?php
 				}
 			}
 			?>
@@ -250,6 +253,5 @@ class unbox_card_widget extends WP_Widget {
 
 		<?php
 	}
-
 } // end class unbox_card_widget
 add_action( 'widgets_init' , create_function( '' , 'return register_widget("unbox_card_widget");' ) );
