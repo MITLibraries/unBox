@@ -85,21 +85,20 @@ add_filter( 'put_trailing_linebreak', '__return_false' );
 /**
  * Unbox Tabs
  */
-function unbox_tabs_init()
-{
+function unbox_tabs_init() {
 	$unbox_tabs_labels = array(
-		'name' => _x('Tabs', 'post type general name'),
-		'singular_name' => _x('Tab', 'post type singular name'),
-		'all_items' => __('All Tabs'),
-		'add_new' =>_x('Add new tab', 'tabs'),
-		'add_new_item' => __('Add new tab'),
-		'edit_item' => __('Edit tab'),
-		'new_item' => __('New tab'),
-		'view_item' => __('View tab'),
-		'search_items' => __('Search in tabs'),
-		'not_found' => __('No tabs found'),
-		'not_found_in_trash' => __('No tabs found in trash'),
-		'parent_item_colon' => ''
+		'name' => _x( 'Tabs' , 'post type general name' ),
+		'singular_name' => _x( 'Tab' , 'post type singular name' ),
+		'all_items' => __( 'All Tabs' ),
+		'add_new' => _x( 'Add new tab' , 'tabs' ),
+		'add_new_item' => __( 'Add new tab' ),
+		'edit_item' => __( 'Edit tab' ),
+		'new_item' => __( 'New tab' ),
+		'view_item' => __( 'View tab' ),
+		'search_items' => __( 'Search in tabs' ),
+		'not_found' => __( 'No tabs found' ),
+		'not_found_in_trash' => __( 'No tabs found in trash' ),
+		'parent_item_colon' => '',
 	);
 	$args = array(
 		'labels' => $unbox_tabs_labels,
@@ -111,7 +110,7 @@ function unbox_tabs_init()
 		'capability_type' => 'post',
 		'hierarchical' => false,
 		'menu_position' => 20,
-		'supports' => array('title')
+		'supports' => array( 'title' ),
 	);
 	register_post_type( 'unbox_tabs' , $args );
 }
@@ -120,21 +119,20 @@ add_action( 'init','unbox_tabs_init' );
 /**
  * Unbox Slides
  */
-function unbox_slides_init()
-{
+function unbox_slides_init() {
 	$unbox_slides_labels = array(
-		'name' => _x('Slides', 'post type general name'),
-		'singular_name' => _x('Slide', 'post type singular name'),
-		'all_items' => __('All Slides'),
-		'add_new' =>_x('Add new slide', 'slides'),
-		'add_new_item' => __('Add new slide'),
-		'edit_item' => __('Edit slide'),
-		'new_item' => __('New slide'),
-		'view_item' => __('View slide'),
-		'search_items' => __('Search in slidess'),
-		'not_found' => __('No slides found'),
-		'not_found_in_trash' => __('No slides found in trash'),
-		'parent_item_colon' => ''
+		'name' => _x( 'Slides' , 'post type general name' ),
+		'singular_name' => _x( 'Slide' , 'post type singular name' ),
+		'all_items' => __( 'All Slides' ),
+		'add_new' => _x( 'Add new slide' , 'slides' ),
+		'add_new_item' => __( 'Add new slide' ),
+		'edit_item' => __( 'Edit slide' ),
+		'new_item' => __( 'New slide' ),
+		'view_item' => __( 'View slide' ),
+		'search_items' => __( 'Search in slidess' ),
+		'not_found' => __( 'No slides found' ),
+		'not_found_in_trash' => __( 'No slides found in trash' ),
+		'parent_item_colon' => '',
 	);
 	$args = array(
 		'labels' => $unbox_slides_labels,
@@ -146,23 +144,22 @@ function unbox_slides_init()
 		'capability_type' => 'post',
 		'hierarchical' => false,
 		'menu_position' => 20,
-		'supports' => array('title'),
-		'taxonomies' => array('category')
+		'supports' => array( 'title' ),
+		'taxonomies' => array( 'category' ),
 	);
 	register_post_type( 'unbox_slides' , $args );
 }
-add_action( 'init','unbox_slides_init' );
+add_action( 'init' , 'unbox_slides_init' );
 
 /**
  * Add "Tab" as an option theme front page
  */
-function add_unbox_tabs_to_dropdown( $pages )
-{
+function add_unbox_tabs_to_dropdown( $pages ) {
 	$args = array(
-		'post_type' => 'unbox_tabs'
+		'post_type' => 'unbox_tabs',
 	);
-	$items = get_posts($args);
-	$pages = array_merge($pages, $items);
+	$items = get_posts( $args );
+	$pages = array_merge( $pages , $items );
 
 	return $pages;
 }
@@ -171,9 +168,8 @@ add_filter( 'get_pages', 'add_unbox_tabs_to_dropdown' );
 /**
  * Enable front page tabs
  */
-function enable_front_page_unbox_tabs( $query )
-{
-	if('' == $query->query_vars['post_type'] && 0 != $query->query_vars['page_id'])
+function enable_front_page_unbox_tabs( $query ) {
+	if ( '' == $query->query_vars['post_type'] && 0 != $query->query_vars['page_id'] )
 		$query->query_vars['post_type'] = array( 'page', 'unbox_tabs' );
 }
 add_action( 'pre_get_posts', 'enable_front_page_unbox_tabs' );
