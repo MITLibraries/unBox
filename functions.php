@@ -1,19 +1,19 @@
 <?php
 /**
- * unBox functions and definitions.
+ * UnBox functions and definitions.
  *
  * @package WordPress
  * @subpackage unBox
  * @since unBox 1.0
  */
 
-add_theme_support('post-thumbnails');
+add_theme_support( 'post-thumbnails' );
 
-// remove canonical links, allowing AddThis to see URL fragments (deep linking into slideshow)
-remove_action('wp_head','rel_canonical');
+// Remove canonical links, allowing AddThis to see URL fragments (deep linking into slideshow).
+remove_action( 'wp_head', 'rel_canonical' );
 
 /**
- * Register widget areas
+ * Register masthead widget area
  */
 function masthead_widgets_init() {
 	register_sidebar( array(
@@ -28,6 +28,9 @@ function masthead_widgets_init() {
 }
 add_action( 'widgets_init', 'masthead_widgets_init' );
 
+/**
+ * Register slideshow widget area
+ */
 function slideshow_widgets_init() {
 	register_sidebar( array(
 			'name' => 'Slideshow Bar',
@@ -41,6 +44,9 @@ function slideshow_widgets_init() {
 }
 add_action( 'widgets_init', 'slideshow_widgets_init' );
 
+/**
+ * Register diptych widget area
+ */
 function diptych_widgets_init() {
 	register_sidebar( array(
 			'name' => 'Diptych Bar',
@@ -54,6 +60,9 @@ function diptych_widgets_init() {
 }
 add_action( 'widgets_init', 'diptych_widgets_init' );
 
+/**
+ * Register footer widget area
+ */
 function footer_widgets_init() {
 	register_sidebar( array(
 			'name' => 'Footer',
@@ -73,21 +82,21 @@ add_filter( 'put_trailing_linebreak', '__return_false' );
  * Register post types
  */
 /* unbox_tabs */
-add_action('init','unbox_tabs_init');
+add_action( 'init', 'unbox_tabs_init' );
 function unbox_tabs_init()
 {
 	$unbox_tabs_labels = array(
-		'name' => _x('Tabs', 'post type general name'),
-		'singular_name' => _x('Tab', 'post type singular name'),
-		'all_items' => __('All Tabs'),
-		'add_new' =>_x('Add new tab', 'tabs'),
-		'add_new_item' => __('Add new tab'),
-		'edit_item' => __('Edit tab'),
-		'new_item' => __('New tab'),
-		'view_item' => __('View tab'),
-		'search_items' => __('Search in tabs'),
-		'not_found' => __('No tabs found'),
-		'not_found_in_trash' => __('No tabs found in trash'),
+		'name' => _x( 'Tabs', 'post type general name' ),
+		'singular_name' => _x( 'Tab', 'post type singular name' ),
+		'all_items' => __( 'All Tabs' ),
+		'add_new' =>_x( 'Add new tab', 'tabs' ),
+		'add_new_item' => __( 'Add new tab' ),
+		'edit_item' => __( 'Edit tab' ),
+		'new_item' => __( 'New tab' ),
+		'view_item' => __( 'View tab' ),
+		'search_items' => __( 'Search in tabs' ),
+		'not_found' => __( 'No tabs found' ),
+		'not_found_in_trash' => __( 'No tabs found in trash' ),
 		'parent_item_colon' => ''
 	);
 	$args = array(
@@ -100,9 +109,9 @@ function unbox_tabs_init()
 		'capability_type' => 'post',
 		'hierarchical' => false,
 		'menu_position' => 20,
-		'supports' => array('title')
+		'supports' => array( 'title' )
 	);
-	register_post_type('unbox_tabs',$args);
+	register_post_type( 'unbox_tabs', $args );
 }
 /* unbox_slides */
 add_action('init','unbox_slides_init');
