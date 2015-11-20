@@ -192,7 +192,7 @@ class unbox_card_widget extends WP_Widget {
 			<?php echo $before_widget; ?>
 				<div class="image"><a href="<?php echo $link;?>"><img src="<?php echo $image_attr[0]; ?>" width="<?php echo $image_attr[1]; ?>" height="<?php echo $image_attr[2]; ?>"></a></div>
 				<?php if ( $title )
-					echo $before_title . '<a href="'.$link.'" class="'.sanitize_title_with_dashes($title).'">'. $title . '</a>' . $after_title; ?>
+					echo $before_title . '<a href="'.$link.'" class="'.sanitize_title_with_dashes( $title ).'">'. $title . '</a>' . $after_title; ?>
 			<?php echo $after_widget; ?>
 		<?php
 	}
@@ -219,7 +219,7 @@ class unbox_card_widget extends WP_Widget {
 			'numberposts' => -1,
 			'post_status' => null,
 			'post_parent' => null, // Any parent.
-		); 
+		);
 		$attachments = get_posts( $args );
 
 		?>
@@ -235,9 +235,9 @@ class unbox_card_widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'image' ); ?>"><?php _e( 'Image' ); ?></label> 
 			<select class="widefat" id="<?php echo $this->get_field_id( 'image' ); ?>" name="<?php echo $this->get_field_name( 'image' ); ?>">
 			<?php
-			if ($attachments) {
-				foreach ($attachments as $post) {
-					?><option value="<?php echo $post->ID; ?>"<?php if ( $image == $post->ID ) { echo ' selected="selected"'; } ?>><?php echo $post->post_title; ?></option><?php			    	
+			if ( $attachments ) {
+				foreach ( $attachments as $post ) {
+					?><option value="<?php echo $post->ID; ?>"<?php if ( $image == $post->ID ) { echo ' selected="selected"'; } ?>><?php echo $post->post_title; ?></option><?php
 				}
 			}
 			?>
@@ -245,6 +245,5 @@ class unbox_card_widget extends WP_Widget {
 		</p>
 		<?php
 	}
-
 } // end class unbox_card_widget
 add_action( 'widgets_init', create_function( '', 'return register_widget("unbox_card_widget");' ) );
