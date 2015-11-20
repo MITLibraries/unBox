@@ -45,7 +45,7 @@ if ( ! is_active_sidebar( 'slideshow' ) && ! is_active_sidebar( 'diptych' ) )
 
 			if ( $the_slides->have_posts() ) {
 				while ( $the_slides->have_posts() ) : $the_slides->the_post();
-					setup_postdata( $post ); 
+					setup_postdata( $post );
 
 					$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'thumbnail' );
 					$imageURL = str_replace( '/chomsky/wp-content/uploads/', '/news/files/', $image[0] );
