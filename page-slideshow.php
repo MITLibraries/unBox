@@ -12,73 +12,71 @@
  * @since Twenty Twelve 1.0
  */
 
-wp_register_script('jquery-cycle2',get_stylesheet_directory_uri().'/jquery.cycle2.min.js');
-wp_register_script('jquery-cycle2-swipe',get_stylesheet_directory_uri().'/jquery.cycle2.swipe.min.js');
-wp_register_script('jquery-cycle2-swipe-ios',get_stylesheet_directory_uri().'/ios6fix.js');
-wp_register_script('jquery-bbq',get_stylesheet_directory_uri().'/jquery.ba-bbq.min.js');
-wp_enqueue_script('jquery');
-wp_enqueue_script('jquery-ui-accordion');
-wp_enqueue_script('jquery-cycle2');
-wp_enqueue_script('jquery-bbq');
+wp_register_script( 'jquery-cycle2', get_stylesheet_directory_uri() . '/jquery.cycle2.min.js' );
+wp_register_script( 'jquery-cycle2-swipe', get_stylesheet_directory_uri() . '/jquery.cycle2.swipe.min.js' );
+wp_register_script( 'jquery-cycle2-swipe-ios', get_stylesheet_directory_uri() . '/ios6fix.js' );
+wp_register_script( 'jquery-bbq', get_stylesheet_directory_uri() . '/jquery.ba-bbq.min.js' );
+wp_enqueue_script( 'jquery' );
+wp_enqueue_script( 'jquery-ui-accordion' );
+wp_enqueue_script( 'jquery-cycle2' );
+wp_enqueue_script( 'jquery-bbq' );
 
 get_header(); ?>
 
 <div id="primary" class="site-content">
   <div id="content" role="main">
 
-     <div id="accordion">
-         <?php 
-			// Get list of categories other than "Uncategorized"
-         $args = array(
-            'orderby' => 'id',
-            'exclude' => 1,
-            );
-         $categories = get_categories($args);
-         $i = 0;
+    <div id="accordion">
+      <?php
+        // Get list of categories other than "Uncategorized".
+        $args = array(
+          'orderby' => 'id',
+          'exclude' => 1,
+        );
+        $categories = get_categories( $args );
+        $i = 0;
 
-         foreach($categories as $category) {
-            // slideshow title
-            echo '<h2><a href="#' . $category->name . '">' . $category->name . '</a></h2>';
+        foreach ( $categories as $category ) {
+          // Slideshow title.
+          echo '<h2><a href="#' . $category->name . '">' . $category->name . '</a></h2>';
 
-            // slideshow
-            ?>
-            <div class="<?php echo $category->slug; ?>">
-               <div class="slideshow" id="<?php echo $category->slug; ?>">
-                   <?php
-
-                   $args = array(
-                      'post_type' => 'unbox_slides',
-                      'post_status' => 'publish',
-                      'posts_per_page' => -1,
-                      'ignore_sticky_posts' => true,
-                      'orderby' => 'title',
-                      'order' => 'ASC',
-                      'cat' => $category->term_id,
-                      );
-                   $the_slides = null;
-                   $the_slides = new WP_Query($args);
-
-                   if( $the_slides->have_posts() ) {
-                      while ( $the_slides->have_posts() ) : $the_slides->the_post();
-							// get_template_part('content','slide');
-                      include( locate_template( 'content-slide.php' ) );
-                      endwhile;
-                  }
-
-                  ?>
-              </div><!-- .cycle-slideshow -->
-              <ul class="control" data-show="<?php echo $category->slug; ?>">
-                  <li><a class="prev"><span class="semantic">Prev</span></a></li>
-                  <li><a class="next"><span class="semantic">Next</span></a></li>
-              </ul>
-          </div>
-          <?php
-          $i++;
-      }
+          // slideshow
       ?>
-  </div><!-- #accordion -->
+          <div class="<?php echo $category->slug; ?>">
+            <div class="slideshow" id="<?php echo $category->slug; ?>">
+      <?php
 
-</div><!-- #content -->
+            $args = array(
+              'post_type' => 'unbox_slides',
+              'post_status' => 'publish',
+              'posts_per_page' => -1,
+              'ignore_sticky_posts' => true,
+              'orderby' => 'title',
+              'order' => 'ASC',
+              'cat' => $category->term_id,
+            );
+            $the_slides = null;
+            $the_slides = new WP_Query( $args );
+
+            if ( $the_slides->have_posts() ) {
+              while ( $the_slides->have_posts() ) : $the_slides->the_post();
+                include( locate_template( 'content-slide.php' ) );
+              endwhile;
+            }
+      ?>
+            </div><!-- .cycle-slideshow -->
+            <ul class="control" data-show="<?php echo $category->slug; ?>">
+              <li><a class="prev"><span class="semantic">Prev</span></a></li>
+              <li><a class="next"><span class="semantic">Next</span></a></li>
+            </ul>
+          </div>
+      <?php
+          $i++;
+        }
+      ?>
+    </div><!-- #accordion -->
+
+  </div><!-- #content -->
 </div><!-- #primary -->
 
 <script>
