@@ -14,9 +14,9 @@
  * Template Name: Slide List
  */
 
-wp_register_script('jquery-cycle2',get_stylesheet_directory_uri().'/jquery.cycle2.min.js');
-wp_enqueue_script('jquery');
-wp_enqueue_script('jquery-cycle2');
+wp_register_script( 'jquery-cycle2', get_stylesheet_directory_uri() . '/jquery.cycle2.min.js' );
+wp_enqueue_script( 'jquery' );
+wp_enqueue_script( 'jquery-cycle2' );
 
 get_header(); ?>
 
@@ -37,11 +37,11 @@ get_header(); ?>
 		'orderby' => 'title',
 	);
 	$the_slides = null;
-	$the_slides = new WP_Query($args);
+	$the_slides = new WP_Query( $args );
 
-	if( $the_slides->have_posts() ) {
+	if ( $the_slides->have_posts() ) {
 		while ( $the_slides->have_posts() ) : $the_slides->the_post();
-			get_template_part('content','slide');
+			get_template_part( 'content', 'slide' );
 		endwhile;
 	}
 
