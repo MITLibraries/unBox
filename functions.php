@@ -152,10 +152,10 @@ add_action( 'init', 'unbox_slides_init' );
  */
 function add_unbox_tabs_to_dropdown( $pages ) {
 	$args = array(
-		'post_type' => 'unbox_tabs'
+		'post_type' => 'unbox_tabs',
 	);
-	$items = get_posts($args);
-	$pages = array_merge($pages, $items);
+	$items = get_posts( $args );
+	$pages = array_merge( $pages, $items );
 
 	return $pages;
 }
@@ -164,91 +164,87 @@ add_filter( 'get_pages', 'add_unbox_tabs_to_dropdown' );
 /**
  * Enable front apge to have tabbed display
  */
-function enable_front_page_unbox_tabs( $query )
-{
+function enable_front_page_unbox_tabs( $query ) {
 	if ( '' == $query->query_vars['post_type'] && 0 != $query->query_vars['page_id'] )
 		$query->query_vars['post_type'] = array( 'page', 'unbox_tabs' );
 }
 add_action( 'pre_get_posts', 'enable_front_page_unbox_tabs' );
 
 /**
- * Example widget code 
+ * Example widget code
  * From http://pippinsplugins.com/simple-wordpress-widget-template/
  */
 class unbox_card_widget extends WP_Widget {
- 
- 
-    /** constructor -- name this the same as the class above */
-    function unbox_card_widget() {
-        parent::WP_Widget(false, $name = 'Image Card Widget');	
-    }
- 
-    /** @see WP_Widget::widget -- do not rename this */
-    function widget($args, $instance) {	
-        extract( $args );
-        $title 		= apply_filters('widget_title', $instance['title']);
-        $link       = $instance['link'];
-        $image_attr = wp_get_attachment_image_src($instance['image'],'full');
-       
-        ?>
-            <?php echo $before_widget; ?>
-              	<div class="image"><a href="<?php echo $link;?>"><img src="<?php echo $image_attr[0]; ?>" width="<?php echo $image_attr[1]; ?>" height="<?php echo $image_attr[2]; ?>"></a></div>
-                <?php if ( $title )
-                        echo $before_title . '<a href="'.$link.'" class="'.sanitize_title_with_dashes($title).'">'. $title . '</a>' . $after_title; ?>
-            <?php echo $after_widget; ?>
-        <?php
-    }
- 
-    /** @see WP_Widget::update -- do not rename this */
-    function update($new_instance, $old_instance) {		
+
+	/** constructor -- name this the same as the class above */
+	function unbox_card_widget() {
+		parent::WP_Widget( false, $name = 'Image Card Widget' );
+	}
+
+	/** @see WP_Widget::widget -- do not rename this */
+	function widget( $args, $instance ) {
+		extract( $args );
+		$title 		= apply_filters( 'widget_title', $instance['title'] );
+		$link 		= $instance['link'];
+		$image_attr = wp_get_attachment_image_src( $instance['image'], 'full' );
+
+		?>
+			<?php echo $before_widget; ?>
+				<div class="image"><a href="<?php echo $link;?>"><img src="<?php echo $image_attr[0]; ?>" width="<?php echo $image_attr[1]; ?>" height="<?php echo $image_attr[2]; ?>"></a></div>
+				<?php if ( $title )
+					echo $before_title . '<a href="'.$link.'" class="'.sanitize_title_with_dashes($title).'">'. $title . '</a>' . $after_title; ?>
+			<?php echo $after_widget; ?>
+		<?php
+	}
+
+	/** @see WP_Widget::update -- do not rename this */
+	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
-		$instance['title'] = strip_tags($new_instance['title']);
-		$instance['link'] = strip_tags($new_instance['link']);
+		$instance['title'] = strip_tags( $new_instance['title'] );
+		$instance['link'] = strip_tags( $new_instance['link'] );
 		$instance['image'] = $new_instance['image'];
-        return $instance;
-    }
- 
-    /** @see WP_Widget::form -- do not rename this */
-    function form($instance) {	
- 
-        $title 		= esc_attr($instance['title']);
-        $link = esc_attr($instance['link']);
-        $image = esc_attr($instance['image']);
+		return $instance;
+	}
+
+	/** @see WP_Widget::form -- do not rename this */
+	function form( $instance ) {
+
+		$title 	= esc_attr( $instance['title'] );
+		$link 	= esc_attr( $instance['link'] );
+		$image 	= esc_attr( $instance['image'] );
 
 		$args = array(
-		    'post_type' => 'attachment',
-		    'post_mime_type' => 'image',
-		    'numberposts' => -1,
-		    'post_status' => null,
-		    'post_parent' => null, // any parent
-		    ); 
-		$attachments = get_posts($args);
+			'post_type' => 'attachment',
+			'post_mime_type' => 'image',
+			'numberposts' => -1,
+			'post_status' => null,
+			'post_parent' => null, // Any parent.
+		); 
+		$attachments = get_posts( $args );
 
-        ?>
-         <p>
-          <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label> 
-          <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
-        </p>
+		?>
 		<p>
-          <label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Link URL'); ?></label> 
-          <input class="widefat" id="<?php echo $this->get_field_id('link'); ?>" name="<?php echo $this->get_field_name('link'); ?>" type="text" value="<?php echo $link; ?>" />
-        </p>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 
+			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
+		</p>
 		<p>
-          <label for="<?php echo $this->get_field_id('image'); ?>"><?php _e('Image'); ?></label> 
-          <select class="widefat" id="<?php echo $this->get_field_id('image'); ?>" name="<?php echo $this->get_field_name('image'); ?>">
+			<label for="<?php echo $this->get_field_id( 'link' ); ?>"><?php _e( 'Link URL' ); ?></label> 
+			<input class="widefat" id="<?php echo $this->get_field_id( 'link' ); ?>" name="<?php echo $this->get_field_name( 'link' ); ?>" type="text" value="<?php echo $link; ?>" />
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'image' ); ?>"><?php _e( 'Image' ); ?></label> 
+			<select class="widefat" id="<?php echo $this->get_field_id( 'image' ); ?>" name="<?php echo $this->get_field_name( 'image' ); ?>">
 			<?php
 			if ($attachments) {
-			    foreach ($attachments as $post) {
-					?><option value="<?php echo $post->ID; ?>"<?php if($image==$post->ID){echo ' selected="selected"';}?>><?php echo $post->post_title; ?></option><?php			    	
-			    }
+				foreach ($attachments as $post) {
+					?><option value="<?php echo $post->ID; ?>"<?php if ( $image == $post->ID ) { echo ' selected="selected"'; } ?>><?php echo $post->post_title; ?></option><?php			    	
+				}
 			}
 			?>
-          </select>
-        </p>
+			</select>
+		</p>
+		<?php
+	}
 
-        <?php 
-    }
- 
- 
 } // end class unbox_card_widget
-add_action('widgets_init', create_function('', 'return register_widget("unbox_card_widget");'));
+add_action( 'widgets_init', create_function( '', 'return register_widget("unbox_card_widget");' ) );
