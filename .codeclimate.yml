@@ -1,0 +1,26 @@
+---
+engines:
+  csslint:
+    enabled: true
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+  phpcodesniffer:
+    enabled: true
+  phpmd:
+    enabled: true
+    checks:
+      Controversial/CamelCaseClassName:
+        enabled: false
+      Controversial/CamelCaseVariableName:
+        enabled: false
+ratings:
+  paths:
+  - "**.css"
+  - "**.js"
+  - "**.jsx"
+  - "**.php"
+  - "**.module"
+  - "**.inc"
+exclude_paths: []
