@@ -20,9 +20,11 @@
 				<a href="https://giving.mit.edu/givenow/add-designation.dyn?designationId=3843690">Give now <span class="hidden-phone">to the Chomsky archive</span></a>
 			</div>
 			<div id="socialFooter">
-				<?php if ( is_active_sidebar( 'footer_bar' ) ) : ?>
-					<?php dynamic_sidebar( 'footer_bar' ); ?>
-				<?php endif; ?>
+				<?php
+					if ( is_active_sidebar( 'footer_bar' ) ) {
+						dynamic_sidebar( 'footer_bar' );
+					}
+				?>
 			</div>
 		</div>
 		<div id="footerFooter" class="">
