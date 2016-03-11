@@ -14,21 +14,21 @@
 	$caption = get_field( 'caption' );
 
 	// Build layout style based on what images are present.
-	$strLayout = 'layout';
+	$layout = 'layout';
 	if ( $image_3 ) {
-		$strLayout .= '3';
+		$layout .= '3';
 	} elseif ( $image_2 ) {
-		$strLayout .= '2';
+		$layout .= '2';
 	} else {
-		$strLayout .= '1';
+		$layout .= '1';
 	}
 	if ( $image['width'] > $image['height'] ) {
-		$strLayout .= 'h';
+		$layout .= 'h';
 	} else {
-		$strLayout .= 'v';
+		$layout .= 'v';
 	}
 ?>
-<div class="cycleslide <?php echo $strLayout; ?> slide<?php echo $id; ?>" title="<?php echo the_title(); ?>">
+<div class="cycleslide <?php echo $layout; ?> slide<?php echo $id; ?>" title="<?php echo the_title(); ?>">
 	<div class="cycleslide-inner">
 		<div class="images">
 			<?php echo get_image_tag( $image['id'], $image['alt'], $image['title'], 'none', 'none' ); ?>
