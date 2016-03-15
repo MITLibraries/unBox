@@ -11,8 +11,9 @@
 
 ?>
 <?php
-if ( ! is_active_sidebar( 'slideshow' ) && ! is_active_sidebar( 'diptych' ) )
+if ( ! is_active_sidebar( 'slideshow' ) && ! is_active_sidebar( 'diptych' ) ) {
 	return;
+}
 
 // If we get this far, we have widgets. Let do this.
 ?>
