@@ -49,12 +49,12 @@ if ( ! is_active_sidebar( 'slideshow' ) && ! is_active_sidebar( 'diptych' ) ) {
 					setup_postdata( $post );
 
 					$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'thumbnail' );
-					$imageURL = str_replace( '/chomsky/wp-content/uploads/', '/news/files/', $image[0] );
-					$imageTag = '<img src="'.$imageURL.'" alt="" height="'.$image[2].'" width="'.$image[1].'">';
+					$image_url = str_replace( '/chomsky/wp-content/uploads/', '/news/files/', $image[0] );
+					$image_tag = '<img src="'.$image_url.'" alt="" height="'.$image[2].'" width="'.$image[1].'">';
 					?>
 					<p>
 						<a href="<?php the_permalink(); ?>">
-							<?php echo $imageTag; ?><br>
+							<?php echo $image_tag; ?><br>
 							<?php the_title(); ?>
 						</a><br>
 						<?php the_time( 'F jS, Y' ); ?><br>
