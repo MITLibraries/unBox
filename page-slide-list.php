@@ -32,7 +32,7 @@ get_header(); ?>
 	$args = array(
 		'post_type' => 'unbox_slides',
 		'post_status' => 'publish',
-		'posts_per_page' => -1,
+		'posts_per_page' => 40,
 		'caller_get_posts' => 1,
 		'orderby' => 'title',
 	);
