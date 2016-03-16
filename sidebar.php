@@ -50,7 +50,7 @@ if ( ! is_active_sidebar( 'slideshow' ) && ! is_active_sidebar( 'diptych' ) ) {
 
 					$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'thumbnail' );
 					$image_url = str_replace( '/chomsky/wp-content/uploads/', '/news/files/', $image[0] );
-					$image_tag = '<img src="'.$image_url.'" alt="" height="'.$image[2].'" width="'.$image[1].'">';
+					$image_tag = '<img src="' . $image_url . '" alt="" height="' . $image[2] . '" width="' . $image[1] . '">';
 					?>
 					<p>
 						<a href="<?php the_permalink(); ?>">

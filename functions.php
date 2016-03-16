@@ -193,7 +193,7 @@ class unbox_card_widget extends WP_Widget {
 			<?php echo $before_widget; ?>
 				<div class="image"><a href="<?php echo $link;?>"><img src="<?php echo $image_attr[0]; ?>" width="<?php echo $image_attr[1]; ?>" height="<?php echo $image_attr[2]; ?>"></a></div>
 				<?php if ( $title ) {
-					echo $before_title . '<a href="'.$link.'" class="'.sanitize_title_with_dashes( $title ).'">'. $title . '</a>' . $after_title;
+					echo $before_title . '<a href="' . $link . '" class="' . sanitize_title_with_dashes( $title ) . '">' .  $title . '</a>' . $after_title;
 				}
 				?>
 			<?php echo $after_widget; ?>
