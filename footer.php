@@ -21,9 +21,9 @@
 			</div>
 			<div id="socialFooter">
 				<?php
-					if ( is_active_sidebar( 'footer_bar' ) ) {
-						dynamic_sidebar( 'footer_bar' );
-					}
+				if ( is_active_sidebar( 'footer_bar' ) ) {
+					dynamic_sidebar( 'footer_bar' );
+				}
 				?>
 			</div>
 		</div>
