@@ -32,10 +32,17 @@ if ( $image['width'] > $image['height'] ) {
 	<div class="cycleslide-inner">
 		<div class="images">
 			<?php
+				// These need to be in separate PHP blocks because the whitespace matters for proper rendering
 				echo get_image_tag( $image['id'], $image['alt'], $image['title'], 'none', 'none' );
+			?>
+			<?php
+				// These need to be in separate PHP blocks because the whitespace matters for proper rendering
 				if ( $image_2 ) {
 					echo get_image_tag( $image_2['id'], $image_2['alt'], $image_2['title'], 'none', 'none' );
 				}
+			?>
+			<?php
+				// These need to be in separate PHP blocks because the whitespace matters for proper rendering
 				if ( $image_3 ) {
 					echo get_image_tag( $image_3['id'], $image_3['alt'], $image_3['title'], 'none', 'none' );
 				}
