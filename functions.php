@@ -165,8 +165,9 @@ add_filter( 'get_pages', 'add_unbox_tabs_to_dropdown' );
  * Enable front apge to have tabbed display
  */
 function enable_front_page_unbox_tabs( $query ) {
-	if ( '' == $query->query_vars['post_type'] && 0 != $query->query_vars['page_id'] )
+	if ( '' == $query->query_vars['post_type'] && 0 != $query->query_vars['page_id'] ) {
 		$query->query_vars['post_type'] = array( 'page', 'unbox_tabs' );
+	}
 }
 add_action( 'pre_get_posts', 'enable_front_page_unbox_tabs' );
 
@@ -191,8 +192,10 @@ class unbox_card_widget extends WP_Widget {
 		?>
 			<?php echo $before_widget; ?>
 				<div class="image"><a href="<?php echo $link;?>"><img src="<?php echo $image_attr[0]; ?>" width="<?php echo $image_attr[1]; ?>" height="<?php echo $image_attr[2]; ?>"></a></div>
-				<?php if ( $title )
-					echo $before_title . '<a href="'.$link.'" class="'.sanitize_title_with_dashes( $title ).'">'. $title . '</a>' . $after_title; ?>
+				<?php if ( $title ) {
+					echo $before_title . '<a href="' . $link . '" class="' . sanitize_title_with_dashes( $title ) . '">' .  $title . '</a>' . $after_title;
+				}
+				?>
 			<?php echo $after_widget; ?>
 		<?php
 	}

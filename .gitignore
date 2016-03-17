@@ -16,3 +16,6 @@ _notes
 
 # local CodeSniffer check
 codesniffer.local.xml
+
+# Sublime workspace
+unBox.sublime-workspace

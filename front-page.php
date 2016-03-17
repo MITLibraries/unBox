@@ -31,19 +31,19 @@ get_header(); ?>
 		</div><!-- #content -->
 	</div><!-- #primary -->
 
-  <script>
-  jQuery(document).ready(function() {	
-  	// Convert main content to tabs
-  	jQuery("#tabs").tabs();
-    // fix the classes
-    jQuery( ".tabs-bottom .ui-tabs-nav, .tabs-bottom .ui-tabs-nav > *" )
-      .removeClass( "ui-corner-all ui-corner-top" )
-      .addClass( "ui-corner-bottom" );
-    // move the nav to the bottom
-    jQuery( ".tabs-bottom .ui-tabs-nav" ).appendTo( ".tabs-bottom" );
+	<script>
+	jQuery(document).ready(function() {
+		// Convert main content to tabs
+		jQuery("#tabs").tabs();
+	// fix the classes
+	jQuery( ".tabs-bottom .ui-tabs-nav, .tabs-bottom .ui-tabs-nav > *" )
+		.removeClass( "ui-corner-all ui-corner-top" )
+		.addClass( "ui-corner-bottom" );
+	// move the nav to the bottom
+	jQuery( ".tabs-bottom .ui-tabs-nav" ).appendTo( ".tabs-bottom" );
 
-  });
-  </script>
+	});
+	</script>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
