@@ -178,7 +178,7 @@ add_action( 'pre_get_posts', 'enable_front_page_unbox_tabs' );
 class unbox_card_widget extends WP_Widget {
 
 	/** constructor -- name this the same as the class above */
-	function unbox_card_widget() {
+	function __construct() {
 		parent::WP_Widget( false, $name = 'Image Card Widget' );
 	}
 
