@@ -40,7 +40,7 @@
 	<header id="masthead" class="site-header" role="banner">
 		<div class="logo"><a href="//libraries.mit.edu/"><img src="/chomsky/files/2013/12/logo_mit_libraries_140x59_999.png" alt="MIT Libraries"></a></div>
 		<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">unBox <br> the <em>Chomsky Archive</em></a></h1>
-		<div class="givenow"><a href="https://giving.mit.edu/givenow/add-designation.dyn?designationId=3843690">Give Now</a></div>
+		<div class="givenow"><a href="https://giving.mit.edu/give/to?fundId=3843690&amp;source=WBMPP">Give Now</a></div>
 		<?php if ( is_active_sidebar( 'masthead' ) ) : ?>
 		<div class="masthead">
 			<?php dynamic_sidebar( 'masthead' ); ?>
