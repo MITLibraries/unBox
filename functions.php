@@ -149,6 +149,8 @@ add_action( 'init', 'unbox_slides_init' );
 
 /**
  * Add "Tab" as an option theme front page
+ *
+ * @param array $pages The existing array to which tabs are added.
  */
 function add_unbox_tabs_to_dropdown( $pages ) {
 	$args = array(
@@ -163,6 +165,8 @@ add_filter( 'get_pages', 'add_unbox_tabs_to_dropdown' );
 
 /**
  * Enable front apge to have tabbed display
+ *
+ * @param object $query The wordpress query which is augmented.
  */
 function enable_front_page_unbox_tabs( $query ) {
 	if ( '' == $query->query_vars['post_type'] && 0 != $query->query_vars['page_id'] ) {
@@ -182,7 +186,13 @@ class unbox_card_widget extends WP_Widget {
 		parent::WP_Widget( false, $name = 'Image Card Widget' );
 	}
 
-	/** @see WP_Widget::widget -- do not rename this */
+	/**
+	 * Widget method
+	 *
+	 * @see WP_Widget::widget -- do not rename this
+	 * @param object $args See Wordpress documentation.
+	 * @param object $instance See Wordpress documentation.
+	 */
 	function widget( $args, $instance ) {
 		extract( $args );
 		$title 		= apply_filters( 'widget_title', $instance['title'] );
@@ -200,7 +210,13 @@ class unbox_card_widget extends WP_Widget {
 		<?php
 	}
 
-	/** @see WP_Widget::update -- do not rename this */
+	/**
+	 * Update method
+	 *
+	 * @see WP_Widget::update -- do not rename this
+	 * @param object $new_instance See Wordpress widget documentation.
+	 * @param object $old_instance See Wordpress widget documentation.
+	 */
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title'] = strip_tags( $new_instance['title'] );
@@ -209,7 +225,12 @@ class unbox_card_widget extends WP_Widget {
 		return $instance;
 	}
 
-	/** @see WP_Widget::form -- do not rename this */
+	/**
+	 * Form method
+	 *
+	 * @see WP_Widget::form -- do not rename this
+	 * @param object $instance See Wordpress widget documentation.
+	 */
 	function form( $instance ) {
 
 		$title 	= esc_attr( $instance['title'] );
