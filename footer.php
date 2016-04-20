@@ -17,7 +17,9 @@
 			<a href="//libraries.mit.edu/" id="logoFooter">MIT Libraries</a>
 			<div id="footerMainLink" class="">
 				<a href="//libraries.mit.edu/archives/">Institute Archives</a> | 
-				<a href="https://giving.mit.edu/give/to?fundId=3843690&amp;source=WBMPP">Give now <span class="hidden-phone">to the Chomsky archive</span></a>
+				<a href="https://giving.mit.edu/give/to?fundId=3843690&amp;source=WBMPP">
+					Give now <span class="hidden-phone">to the Chomsky archive</span>
+				</a>
 			</div>
 			<div id="socialFooter">
 				<?php
