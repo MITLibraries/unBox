@@ -16,6 +16,8 @@ engines:
     enabled: true
   phpcodesniffer:
     enabled: true
+    config:
+      standard: "WordPress"
     checks:
       Generic WhiteSpace DisallowTabIndent TabsUsed:
         enabled: false
