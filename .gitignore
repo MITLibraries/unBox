@@ -14,6 +14,12 @@ logs
 results
 _notes
 
+npm-debug.log
+
+node_modules/
+
+/style.css
+
 # local CodeSniffer check
 codesniffer.local.xml
 
