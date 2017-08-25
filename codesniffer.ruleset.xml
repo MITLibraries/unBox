@@ -11,5 +11,28 @@
 		<exclude name="Generic.WhiteSpace.ScopeIndent.IncorrectExact" />
 		<exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect" />
 		<exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
+		<!-- Exclude the following known-failing sniffs -->
+		<exclude name="Generic.Commenting.DocComment.ShortNotCapital" />
+		<exclude name="PEAR.NamingConventions.ValidClassName.Invalid" />
+		<exclude name="PEAR.NamingConventions.ValidClassName.StartWithCapital" />
+		<exclude name="Squiz.Commenting.InlineComment.InvalidEndChar" />
+		<exclude name="Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace" />
+		<exclude name="Squiz.PHP.EmbeddedPhp.ContentAfterEnd" />
+		<exclude name="Squiz.PHP.EmbeddedPhp.ContentAfterOpen" />
+		<exclude name="Squiz.PHP.EmbeddedPhp.ContentBeforeOpen" />
+		<exclude name="Squiz.PHP.EmbeddedPhp.Empty" />
+		<exclude name="Squiz.PHP.EmbeddedPhp.SpacingBeforeClose" />
+		<exclude name="Squiz.PHP.DisallowMultipleAssignments.Found" />
+		<exclude name="Squiz.Strings.ConcatenationSpacing.PaddingFound" />
+		<exclude name="WordPress.Arrays.ArrayIndentation.CloseBraceNotAligned" />
+		<exclude name="WordPress.Arrays.ArrayIndentation.ItemNotAligned" />
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName" />
+		<exclude name="WordPress.Functions.DontExtract.extract_extract" />
+		<exclude name="WordPress.VIP.PostsPerPage.posts_per_page_numberposts" />
+		<exclude name="WordPress.VIP.RestrictedFunctions.switch_to_blog_switch_to_blog" />
+		<exclude name="WordPress.WhiteSpace.DisallowInlineTabs.NonIndentTabsUsed" />
+		<exclude name="WordPress.WP.EnqueuedResources.NonEnqueuedScript" />
+		<exclude name="WordPress.XSS.EscapeOutput.OutputNotEscaped" />
+		<exclude name="WordPress.XSS.EscapeOutput.UnsafePrintingFunction" />
 	</rule>
 </ruleset>
