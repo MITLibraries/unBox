@@ -40,7 +40,7 @@
 	<header id="masthead" class="site-header" role="banner">
 		<div class="logo">
 			<a href="//libraries.mit.edu/">
-				<img src="/chomsky/files/2013/12/logo_mit_libraries_140x59_999.png" alt="MIT Libraries">
+				<img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/logo-black.png" alt="MIT Libraries">
 			</a>
 		</div>
 		<h1 class="site-title">
